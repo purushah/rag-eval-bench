@@ -1,0 +1,1948 @@
+{
+ "description": "",
+ "note": "20 questions derived from internal (non-public) operator documentation are withheld from this release; the paper reports results with and without them.",
+ "questions": [
+  {
+   "id": "gen-1",
+   "source": "general",
+   "question": "What does the state.backend (state.backend.type) option control, and what are its valid values?",
+   "mustContain": [
+    "state.backend",
+    "rocksdb"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-2",
+   "source": "general",
+   "question": "Which configuration option sets how often Flink triggers a checkpoint?",
+   "mustContain": [
+    "execution.checkpointing.interval"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-3",
+   "source": "general",
+   "question": "How do you assign timestamps and watermarks to a source in modern Flink DataStream?",
+   "mustContain": [
+    "WatermarkStrategy"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-4",
+   "source": "general",
+   "question": "Which configuration controls how a Flink job recovers after a failure?",
+   "mustContain": [
+    "restart-strategy"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-5",
+   "source": "general",
+   "question": "What memory does the RocksDB state backend draw from, and which option sizes it?",
+   "mustContain": [
+    "taskmanager.memory.managed",
+    "rocksdb"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-6",
+   "source": "general",
+   "question": "What are unaligned checkpoints and which configuration enables them?",
+   "mustContain": [
+    "unaligned",
+    "execution.checkpointing.unaligned"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-7",
+   "source": "general",
+   "question": "Which configuration option lets checkpoints continue after some tasks have finished?",
+   "mustContain": [
+    "checkpoints-after-tasks-finish"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "vector",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "gen-8",
+   "source": "general",
+   "question": "How does Flink guarantee exactly-once output to external systems, and what mechanism do transactional sinks rely on?",
+   "mustContain": [
+    "exactly-once",
+    "checkpoint"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "graph",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-1",
+   "source": "jira",
+   "question": "Which Jira issue is the umbrella for unaligned checkpoints, and what does it track?",
+   "mustContain": [
+    "FLINK-14551",
+    "unaligned"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-2",
+   "source": "jira",
+   "question": "Which Jira issue is the umbrella for the FLIP-27 source interface refactor?",
+   "mustContain": [
+    "FLINK-10740",
+    "FLIP-27"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-3",
+   "source": "jira",
+   "question": "Which Jira issue implements FLIP-147 (support checkpoints after tasks finished)?",
+   "mustContain": [
+    "FLINK-2491",
+    "FLIP-147"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-4",
+   "source": "jira",
+   "question": "Which Jira issue added the new Source API classes under FLIP-27?",
+   "mustContain": [
+    "FLINK-15131",
+    "Source"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-5",
+   "source": "jira",
+   "question": "Which Jira issue describes the long-standing problem that checkpointing is aborted if any task has finished?",
+   "mustContain": [
+    "FLINK-9640",
+    "finished"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-6",
+   "source": "jira",
+   "question": "Which Jira issue tracks the 1.15 follow-up tasks and code improvements for FLIP-147?",
+   "mustContain": [
+    "FLINK-23883",
+    "FLIP-147"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "jira-7",
+   "source": "jira",
+   "question": "Which Jira issue refactored the Google Cloud Pub/Sub source to comply with FLIP-27?",
+   "mustContain": [
+    "FLINK-20625",
+    "FLIP-27"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-1",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-18139) fixed unaligned checkpoints checking the wrong channels for in-flight data, and who authored it?",
+   "mustContain": [
+    "FLINK-18139",
+    "AHeise"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-2",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-27251) added timeout from aligned to unaligned checkpoint barrier in the output buffers, and who authored it?",
+   "mustContain": [
+    "FLINK-27251",
+    "1996fanrui"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-3",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-17568) fixed a task consuming input data after the checkpoint barrier before the unaligned checkpoint was performed, and who authored it?",
+   "mustContain": [
+    "FLINK-17568",
+    "wsry"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-4",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-16404) avoided caching buffers for blocked input channels before barrier alignment, and who authored it?",
+   "mustContain": [
+    "FLINK-16404",
+    "wsry"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-5",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-22301) made the state backend and checkpoint storage type visible in the Web UI, and who authored it?",
+   "mustContain": [
+    "FLINK-22301",
+    "SteNicholas"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-6",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-17258) enabled unaligned checkpoints in all tests by default, and who authored it?",
+   "mustContain": [
+    "FLINK-17258",
+    "AHeise"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "pr-7",
+   "source": "pr-commit",
+   "question": "Which source file in flink-core defines the checkpointing configuration options?",
+   "mustContain": [
+    "CheckpointingOptions"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "ml-1",
+   "source": "mailing-list",
+   "question": "What did the dev@ discussion for FLIP-147 conclude about splitting StreamOperator#close so a final checkpoint can be taken after records are flushed?",
+   "mustContain": [
+    "FLIP-147",
+    "close"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "ml-2",
+   "source": "mailing-list",
+   "question": "What concerns did the community raise on the dev mailing list when proposing unaligned checkpoints (FLIP-76)?",
+   "mustContain": [
+    "FLIP-76",
+    "unaligned"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "ml-3",
+   "source": "mailing-list",
+   "question": "What design goals were discussed on the dev mailing list for refactoring the source interface (FLIP-27)?",
+   "mustContain": [
+    "FLIP-27",
+    "Source"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "ml-4",
+   "source": "mailing-list",
+   "question": "What was the rationale discussed for enabling unaligned checkpoints by default (FLIP-413)?",
+   "mustContain": [
+    "FLIP-413",
+    "unaligned"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "ml-5",
+   "source": "mailing-list",
+   "question": "What was proposed on the dev mailing list for a FLIP-27-based data generator source (FLIP-238)?",
+   "mustContain": [
+    "FLIP-238",
+    "FLIP-27"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "ml-6",
+   "source": "mailing-list",
+   "question": "Across the dev@ checkpointing discussions, what recurring theme connects backpressure, in-flight data, and checkpoint timeouts?",
+   "mustContain": [
+    "backpressure",
+    "unaligned"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "graph",
+   "origin": "v1-handwritten",
+   "bucket": "recent"
+  },
+  {
+   "id": "v2-jira-1",
+   "source": "jira",
+   "question": "What dependencies are suggested for Flink quickstarts in FLINK-20472?",
+   "mustContain": [
+    "FLINK-20472",
+    "flink-dist",
+    "log4j"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-20472#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-2",
+   "source": "jira",
+   "question": "What does FLINK-4481 address in terms of pairwise algorithm results?",
+   "mustContain": [
+    "FLINK-4481",
+    "Maximum results for pairwise algorithms",
+    "AdamicAdar"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-4481#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-3",
+   "source": "jira",
+   "question": "What is the identifier for the issue related to Kafka's source API performance differences in Flink?",
+   "mustContain": [
+    "FLINK-28576",
+    "Kafka's two source api performance differences"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-28576#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-4",
+   "source": "jira",
+   "question": "What issue was addressed in FLINK-23610 related to the DefaultSchedulerTest?",
+   "mustContain": [
+    "FLINK-23610",
+    "DefaultSchedulerTest.testProducedPartitionRegistrationTimeout",
+    "fails on azure"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-23610#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-5",
+   "source": "jira",
+   "question": "What should I do if I encounter an InvalidProgramException when compiling a Flink table program?",
+   "mustContain": [
+    "org.apache.flink.api.common.InvalidProgramException",
+    "Table program cannot be compiled",
+    "This is a bug. Please file an issue."
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-23602#12",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-6",
+   "source": "jira",
+   "question": "Why doesn't the table.optimizer.reuse-sub-plan-enabled setting work when converting a Table to a DataStream in Flink?",
+   "mustContain": [
+    "FLINK-33622",
+    "table.optimizer.reuse-sub-plan-enabled"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-33622#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-7",
+   "source": "jira",
+   "question": "What issue was causing UnalignedCheckpointRescaleITCase to fail on Azure in Flink 1.13.0?",
+   "mustContain": [
+    "FLINK-21880",
+    "UnalignedCheckpointRescaleITCase fails on azure",
+    "java.lang.RuntimeException"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-21880#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-8",
+   "source": "jira",
+   "question": "What issue might cause a Flink job to crash with an IllegalArgumentException related to time when running with low Kafka source throughput?",
+   "mustContain": [
+    "FLINK-29845",
+    "ThroughputCalculator",
+    "java.lang.IllegalArgumentException: Time should be non negative"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-29845#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-9",
+   "source": "jira",
+   "question": "What are the requirements for using MiniClusterExtension in Flink tests?",
+   "mustContain": [
+    "@RegisterExtension",
+    "org.apache.flink.runtime.*",
+    "MiniClusterExtension"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-33104#8",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-10",
+   "source": "jira",
+   "question": "What issue does FLINK-39212 address in Apache Flink?",
+   "mustContain": [
+    "FLINK-39212",
+    "CDC yaml will wrong if metadata and physical columns share same column name"
+   ],
+   "difficulty": "medium",
+   "bucket": "year",
+   "provenance": "jira:FLINK-39212#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-11",
+   "source": "jira",
+   "question": "Why was JDK11 chosen for the binary convenience release in Flink 2.0?",
+   "mustContain": [
+    "FLINK-37424",
+    "JDK11",
+    "binary convenience release"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-37424#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-12",
+   "source": "jira",
+   "question": "How does FLINK-14981 propose to handle dynamic log level adjustments in the web frontend?",
+   "mustContain": [
+    "FLINK-14981",
+    "web frontend support dynamic adjustment of the log level"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-14981#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-13",
+   "source": "jira",
+   "question": "What issue does FLINK-22955 address in Apache Flink?",
+   "mustContain": [
+    "FLINK-22955",
+    "lookup join filter push down",
+    "mismatch function signature"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-22955#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-14",
+   "source": "jira",
+   "question": "What is the cause of the ClassCastException in the Flink job with operator ID 76?",
+   "mustContain": [
+    "java.lang.ClassCastException",
+    "org.apache.flink.streaming.runtime.partitioner.KeyGroupStreamPartitioner.keySelector",
+    "id\" : 76"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-37684#1",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-15",
+   "source": "jira",
+   "question": "What warning might you encounter related to metric name collisions in Apache Flink?",
+   "mustContain": [
+    "Group already contains a Metric with the name 'numBuffersInLocal'",
+    "Metric will not be reported",
+    "org.apache.flink.metrics.MetricGroup"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-27944#3",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-16",
+   "source": "jira",
+   "question": "What issue was addressed in FLINK-28725 related to the flink-kubernetes-operator?",
+   "mustContain": [
+    "FLINK-28725",
+    "flink-kubernetes-operator",
+    "unknown field \"replicas\""
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-28725#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-17",
+   "source": "jira",
+   "question": "What improvements are proposed for the operator state backend hierarchy in FLINK-6849?",
+   "mustContain": [
+    "FLINK-6849",
+    "operator state backends",
+    "proper hierarchy"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-6849#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-18",
+   "source": "jira",
+   "question": "What issue does FLINK-27480 address regarding KafkaSources?",
+   "mustContain": [
+    "FLINK-27480",
+    "InstanceAlreadyExistException",
+    "groupId"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-27480#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-19",
+   "source": "jira",
+   "question": "What issue is causing the timeout in the OpenSSL e2e tests for Apache Flink?",
+   "mustContain": [
+    "FLINK-36888",
+    "flink-shaded-netty-tcnative-static",
+    "OpenSSL e2e tests timed out"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-36888#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-20",
+   "source": "jira",
+   "question": "What issue does FLINK-25972 address in Apache Flink?",
+   "mustContain": [
+    "FLINK-25972",
+    "JaninoRelMetadataProvider",
+    "class leaks"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-25972#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-21",
+   "source": "jira",
+   "question": "What issue arises when casting types in Flink's type inference?",
+   "mustContain": [
+    "org.apache.flink.table.api.ValidationException",
+    "inferOutputType",
+    "MappingTypeStrategy"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "jira:FLINK-17224#8",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-22",
+   "source": "jira",
+   "question": "What changes were made to the ZooKeeperLeaderElectionTest in FLINK-30342?",
+   "mustContain": [
+    "FLINK-30342",
+    "Migrate ZooKeeperLeaderElectionTest",
+    "ZooKeeperMultipleComponentLeaderElectionDriverTest"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-30342#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-23",
+   "source": "jira",
+   "question": "Which classes need to be overridden for implementing MariaDB GTID support in Flink's MySQL CDC connector?",
+   "mustContain": [
+    "io.debezium.connector.mysql.MySqlStreamingChangeEventSource",
+    "org.apache.flink.cdc.connectors.mysql.debezium.DebeziumUtils",
+    "org.apache.flink.cdc.connectors.mysql.source.offset.BinlogOffset"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "jira:FLINK-40314#3",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-24",
+   "source": "jira",
+   "question": "Why does the PausableRelativeClock not pause when using a source with only one split in Flink?",
+   "mustContain": [
+    "FLINK-36751",
+    "PausableRelativeClock#pause",
+    "pauseOrResumeSplits"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-36751#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-25",
+   "source": "jira",
+   "question": "What changes were made to ManagedTable APIs in Flink 2.0?",
+   "mustContain": [
+    "FLINK-36171",
+    "ManagedTable",
+    "deprecated in 1.18"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-36171#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-26",
+   "source": "jira",
+   "question": "What issues were resolved in FLINK-35088 related to watermark alignment parameters?",
+   "mustContain": [
+    "FLINK-35088",
+    "maxAllowedWatermarkDrift",
+    "updateInterval"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-35088#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-27",
+   "source": "jira",
+   "question": "How does the MongoDBStreamFetchTask in Flink's MongoDB CDC connector handle change stream cursors?",
+   "mustContain": [
+    "MongoDBStreamFetchTask.openChangeStreamCursor",
+    "org.apache.flink.cdc.connectors.mongodb.source.reader.fetch.MongoDBStreamFetchTask"
+   ],
+   "difficulty": "medium",
+   "bucket": "year",
+   "provenance": "jira:FLINK-38550#4",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-28",
+   "source": "jira",
+   "question": "What is the purpose of FLINK-11425 in Apache Flink?",
+   "mustContain": [
+    "FLINK-11425",
+    "HashTeamManager",
+    "multiway inputs hash join"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-11425#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-29",
+   "source": "jira",
+   "question": "What is the issue with ListStateWithCache in Flink ML regarding snapshots?",
+   "mustContain": [
+    "FLINK-31410",
+    "ListStateWithCache",
+    "incremental snapshot"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "jira:FLINK-31410#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-jira-30",
+   "source": "jira",
+   "question": "What issue was addressed in FLINK-26514 related to YARNSessionFIFOITCase?",
+   "mustContain": [
+    "FLINK-26514",
+    "YARNSessionFIFOITCase",
+    "testDetachedMode failed on azure"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "jira:FLINK-26514#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-1",
+   "source": "pr-commit",
+   "question": "What changes were proposed in FLINK-16404 to handle deadlock issues during checkpointing?",
+   "mustContain": [
+    "FLINK-16404",
+    "avoid caching buffers",
+    "revoke previous received credit"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:11351#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-2",
+   "source": "pr-commit",
+   "question": "What issue does PR #12244 address in Apache Flink?",
+   "mustContain": [
+    "PR/issue #12244",
+    "FLINK-17258",
+    "unaligned checkpoints"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:12244#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-3",
+   "source": "pr-commit",
+   "question": "What was the purpose of PR #16834 related to RocksDB in Flink?",
+   "mustContain": [
+    "PR/issue #16834",
+    "FLINK-22301",
+    "Remove unnecessary setTotalOrderForSeek for Rocks iterator"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:16834#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-4",
+   "source": "pr-commit",
+   "question": "Who refactored interfaces for TVF based window in Apache Flink?",
+   "mustContain": [
+    "@cshuo",
+    "FLINK-17258",
+    "PR/issue #15745"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:15745#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-5",
+   "source": "pr-commit",
+   "question": "How does PR #17229 address back-pressure when the state change upload limit is reached in Flink?",
+   "mustContain": [
+    "PR/issue #17229",
+    "FLINK-23883",
+    "back-pressure from changelog storage"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:17229#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-6",
+   "source": "pr-commit",
+   "question": "What updates were made in PR #23664 to support Java 21 in Flink?",
+   "mustContain": [
+    "PR/issue #23664",
+    "netty to 4.1.100",
+    "arrow to 13.0.0"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "gh:23664#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-7",
+   "source": "pr-commit",
+   "question": "What improvements were made to the Flink session cluster on Kubernetes in PR #9470?",
+   "mustContain": [
+    "PR/issue #9470",
+    "FLINK-9640",
+    "flink-conf.yaml"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "gh:9470#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-8",
+   "source": "pr-commit",
+   "question": "How was the FlatMap operation added to the Python Table API in Flink?",
+   "mustContain": [
+    "PR/issue #14352",
+    "HuangXingBo"
+   ],
+   "difficulty": "medium",
+   "bucket": "recent",
+   "provenance": "gh:14352#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-9",
+   "source": "pr-commit",
+   "question": "What was the purpose of the changes made in PR #15653 related to the Hive connector in Apache Flink?",
+   "mustContain": [
+    "PR/issue #15653",
+    "FLINK-15131",
+    "Inject current ugi credentials into jobconf"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:15653#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-10",
+   "source": "pr-commit",
+   "question": "What issue did PR #12506 address in Apache Flink?",
+   "mustContain": [
+    "PR/issue #12506",
+    "FLINK-18139",
+    "unaligned checkpoints checks wrong channels for inflight data"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:12506#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-11",
+   "source": "pr-commit",
+   "question": "What issue did PR #12493 address in Apache Flink?",
+   "mustContain": [
+    "PR/issue #12493",
+    "FLINK-18139",
+    "unaligned checkpoints checks wrong channels"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:12493#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-12",
+   "source": "pr-commit",
+   "question": "What was the purpose of PR #14061 related to the FileSink in Apache Flink?",
+   "mustContain": [
+    "PR/issue #14061",
+    "FLINK-9640",
+    "Add FileSink documentation"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "gh:14061#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-13",
+   "source": "pr-commit",
+   "question": "Who improved the threading model of CheckpointBarrierUnaligner in Apache Flink?",
+   "mustContain": [
+    "@AHeise",
+    "FLINK-18139",
+    "PR/issue #13228"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:13228#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-14",
+   "source": "pr-commit",
+   "question": "How does FLINK-27251 improve checkpointing under severe back pressure?",
+   "mustContain": [
+    "FLINK-27251",
+    "aligned-checkpoint-timeout",
+    "1996fanrui"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "gh:19723#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-15",
+   "source": "pr-commit",
+   "question": "What interfaces were introduced in PR #10486 for FLIP-27?",
+   "mustContain": [
+    "PR/issue #10486",
+    "FLIP-27",
+    "Boundedness"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:10486#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-16",
+   "source": "pr-commit",
+   "question": "What changes were introduced in PR #13344 related to the File Source in Apache Flink?",
+   "mustContain": [
+    "PR/issue #13344",
+    "FLINK-10740",
+    "FLIP-27 File Source"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:13344#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-17",
+   "source": "pr-commit",
+   "question": "How does FLINK-16641 address the deadlock issue in Apache Flink's network communication?",
+   "mustContain": [
+    "FLINK-16641",
+    "deadlock",
+    "announce sender's backlog"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:11877#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-18",
+   "source": "pr-commit",
+   "question": "What changes were introduced in PR #17952 related to vertex parallelism in Flink?",
+   "mustContain": [
+    "PR/issue #17952",
+    "VertexParallelismDecider",
+    "adaptive batch scheduler"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "gh:17952#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-19",
+   "source": "pr-commit",
+   "question": "What was the purpose of PR #18823 in the Apache Flink project?",
+   "mustContain": [
+    "PR/issue #18823",
+    "FLINK-20625",
+    "PubSubSource connector"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:18823#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-20",
+   "source": "pr-commit",
+   "question": "What changes were made in PR #15152 related to Google Cloud Pub/Sub in Flink?",
+   "mustContain": [
+    "PR/issue #15152",
+    "FLINK-20625",
+    "Google Cloud Pub/Sub source connector"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:15152#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-21",
+   "source": "pr-commit",
+   "question": "How was the issue of missing state backend and checkpoint storage type in the Flink Web UI addressed?",
+   "mustContain": [
+    "PR/issue #15732",
+    "FLINK-22301",
+    "SteNicholas"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:15732#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-22",
+   "source": "pr-commit",
+   "question": "Which pull request added support for the GREATEST and LEAST functions in Flink's table API?",
+   "mustContain": [
+    "#16020",
+    "FLINK-21911",
+    "leonardBang"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:16020#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-23",
+   "source": "pr-commit",
+   "question": "What issue does PR #12034 address in Apache Flink's checkpointing?",
+   "mustContain": [
+    "FLINK-17568",
+    "PR/issue #12034",
+    "unaligned checkpoint"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:12034#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-24",
+   "source": "pr-commit",
+   "question": "Which pull request enabled unaligned checkpoints in all tests by default in Apache Flink?",
+   "mustContain": [
+    "#11868",
+    "FLINK-17258",
+    "AHeise"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "gh:11868#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-pr-commit-25",
+   "source": "pr-commit",
+   "question": "How does PR #16238 improve the handling of finished snapshots in Apache Flink?",
+   "mustContain": [
+    "PR/issue #16238",
+    "FLINK-2491",
+    "gaoyunhaii"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "gh:16238#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-1",
+   "source": "commit",
+   "question": "What change was made in commit d722bf7d1fa1 to address test instability in Apache Flink?",
+   "mustContain": [
+    "d722bf7d1fa1",
+    "FLINK-33346",
+    "Removes timeout"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:d722bf7d1fa1#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-2",
+   "source": "commit",
+   "question": "What changes were made to SerializedThrowableSerializerTest in FLINK-10804?",
+   "mustContain": [
+    "SerializedThrowableSerializerTest",
+    "FLINK-10804",
+    "deprecated methods are removed"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:99a101ca0916#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-3",
+   "source": "commit",
+   "question": "What is the behavior of PARSE_JSON and TRY_PARSE_JSON when handling overflowing numbers in Apache Flink?",
+   "mustContain": [
+    "FLINK-40217",
+    "PARSE_JSON",
+    "TRY_PARSE_JSON"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "commit:c43754cdc4f7#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-4",
+   "source": "commit",
+   "question": "What change was made in FLINK-29666 regarding job vertex initialization?",
+   "mustContain": [
+    "FLINK-29666",
+    "job vertices",
+    "initialized earlier"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:ca18dd7c8363#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-5",
+   "source": "commit",
+   "question": "What changes were made to the Apache Commons Lang library in Flink for FLINK-29624?",
+   "mustContain": [
+    "FLINK-29624",
+    "org.apache.commons:commons-lang3",
+    "3.12.0"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:68d93ab996e2#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-6",
+   "source": "commit",
+   "question": "What changes were made in FLINK-35117 regarding classloader permissions?",
+   "mustContain": [
+    "FLINK-35117",
+    "commons-text",
+    "allowed classloader list"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:bec57c16c719#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-7",
+   "source": "commit",
+   "question": "How was the FileReadingWatermarkITCase test improved in FLINK-23351?",
+   "mustContain": [
+    "FLINK-23351",
+    "FileReadingWatermarkITCase",
+    "ContinuousFileReaderOperator"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:0b52bfdbf94c#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-8",
+   "source": "commit",
+   "question": "What change was made to the configuration option for topn cache size in Flink's table module?",
+   "mustContain": [
+    "table.exec.topn.cache-size",
+    "ExecutionConfigOptions",
+    "Marios Trivyzas"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:56c5034fdf0f#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-9",
+   "source": "commit",
+   "question": "What changes were made to the JDBC connector in FLINK-30465?",
+   "mustContain": [
+    "FLINK-30465",
+    "Remove JDBC connector",
+    "externalized docs"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:13fd4f270a3a#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-10",
+   "source": "commit",
+   "question": "Why was the timeout removed from YARNSessionCapacitySchedulerITCase in Flink?",
+   "mustContain": [
+    "FLINK-30539",
+    "Matthias Pohl",
+    "watchdog process"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:2ffe7e019196#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-11",
+   "source": "commit",
+   "question": "What change was made in FLINK-26331 regarding configuration for repeatable cleanups?",
+   "mustContain": [
+    "FLINK-26331",
+    "repeatable cleanups",
+    "configuration pattern for task restarts"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:2e627a1472fb#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-12",
+   "source": "commit",
+   "question": "What change was made in FLINK-40113 to handle disagreements on max parallelism during restore?",
+   "mustContain": [
+    "FLINK-40113",
+    "Reject restore when operators on a keyed vertex disagree on max parallelism",
+    "ChainingMaxParallelismStateLossITCase"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "commit:47abc18f7ac2#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-13",
+   "source": "commit",
+   "question": "How does FLINK-34569 address the issue of orphaned containers in end-to-end tests?",
+   "mustContain": [
+    "FLINK-34569",
+    "orphan",
+    "Robert Young"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:b8d527166e09#1",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-14",
+   "source": "commit",
+   "question": "How does FLINK-26075 enhance the JSON plan in Flink's table planner?",
+   "mustContain": [
+    "FLINK-26075",
+    "Persist node configuration to JSON plan",
+    "ExecNodeConfig"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:bc11450bbf25#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-15",
+   "source": "commit",
+   "question": "Why was the session window TVF feature reverted in Apache Flink?",
+   "mustContain": [
+    "FLINK-23544",
+    "CALCITE-4337",
+    "FLINK-24024"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:68a29f3c4acc#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-16",
+   "source": "commit",
+   "question": "How can I configure the environment in Apache Flink using EnvironmentSettings?",
+   "mustContain": [
+    "FLINK-26421",
+    "EnvironmentSettings",
+    "withConfiguration"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:57742b850951#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-17",
+   "source": "commit",
+   "question": "What changes were made to the google-cloud-storage version in flink-gs-fs-hadoop to address the NullPointerException issue?",
+   "mustContain": [
+    "FLINK-39136",
+    "NullPointerException"
+   ],
+   "difficulty": "medium",
+   "bucket": "year",
+   "provenance": "commit:8bf4827a3bee#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-18",
+   "source": "commit",
+   "question": "What change was made in FLINK-24303 regarding source enumerator creation failures?",
+   "mustContain": [
+    "FLINK-24303",
+    "full (global) failover",
+    "closes #17324"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:d18d1f4b7acd#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-19",
+   "source": "commit",
+   "question": "Why were leadership tests disabled for Kubernetes components in FLINK-24038?",
+   "mustContain": [
+    "FLINK-24038",
+    "multiple component leadership ha services",
+    "KubernetesCheckpointIDCounter"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:fef375e571ef#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-20",
+   "source": "commit",
+   "question": "How does FLINK-26641 improve job status fetching in Apache Flink?",
+   "mustContain": [
+    "FLINK-26641",
+    "job status",
+    "rest api"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:9851ad03c1b9#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-21",
+   "source": "commit",
+   "question": "What does FLINK-39851 address in terms of table conversion?",
+   "mustContain": [
+    "FLINK-39851",
+    "in-place table to materialized table conversion",
+    "conversion makes a best-effort rollback"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "commit:d70e596602b6#2",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-22",
+   "source": "commit",
+   "question": "What changes were made to the DispatcherRunner in FLINK-30759?",
+   "mustContain": [
+    "FLINK-30759",
+    "DispatcherRunnerLeaderElectionLifecycleManager",
+    "DefaultDispatcherRunner"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:2d1d61c68d81#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-23",
+   "source": "commit",
+   "question": "How was the IPv6 configuration issue resolved in the IPv6HostnamesITCase under AdaptiveScheduler?",
+   "mustContain": [
+    "FLINK-39846",
+    "IPv6HostnamesITCase",
+    "AdaptiveScheduler"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "commit:8a5687898a66#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-24",
+   "source": "commit",
+   "question": "What changes were made to the TestStreamEnvironment in commit b9cadc24b7dc?",
+   "mustContain": [
+    "FLINK-39523",
+    "TestStreamEnvironment",
+    "RecoveredStateFilteringLargeRecordITCase"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "commit:b9cadc24b7dc#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-25",
+   "source": "commit",
+   "question": "What change was made to the JobMaster.registerTaskManager method in FLINK-25849?",
+   "mustContain": [
+    "FLINK-25849",
+    "TaskManager session id",
+    "JobMaster.registerTaskManager"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:77ec80556173#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-26",
+   "source": "commit",
+   "question": "What changes were made in FLINK-36181 regarding Java and Scala versions?",
+   "mustContain": [
+    "FLINK-36181",
+    "Java 17",
+    "Scala to 2.12.20"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:997b48340d2a#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-27",
+   "source": "commit",
+   "question": "Which deprecated methods were removed from StreamTableEnvironment in FLINK-36484?",
+   "mustContain": [
+    "FLINK-36484",
+    "StreamTableEnvironment#registerFunction",
+    "Ammu Parvathy"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:4263ad3ed431#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-28",
+   "source": "commit",
+   "question": "What changes were made in FLINK-30202 to improve record processing reliability?",
+   "mustContain": [
+    "FLINK-30202",
+    "isAvailable()",
+    "rate-limiting"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:81ed6c649e1a#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-29",
+   "source": "commit",
+   "question": "What was the inconsistency fixed in FLINK-26285 related to?",
+   "mustContain": [
+    "FLINK-26285",
+    "c3a6b51",
+    "FLINK-19543"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:431f757aa354#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-30",
+   "source": "commit",
+   "question": "What issue does commit d402fe255cdc address in the Flink table planner?",
+   "mustContain": [
+    "FLINK-28987",
+    "d402fe255cdc",
+    "LegacyTableSourceTable"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:d402fe255cdc#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-1",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLIP-303 in Apache Flink?",
+   "mustContain": [
+    "FLIP-303",
+    "REPLACE TABLE AS SELECT statement"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:5fzfqc6dw6wyx2xsnh2rpsotsxhbpc26#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-2",
+   "source": "mailing-list",
+   "question": "What is the outcome of the vote on FLIP-208 regarding the addition of RecordEvaluator?",
+   "mustContain": [
+    "FLIP-208",
+    "+1 (binding)",
+    "Qingsheng Ren"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:prrkq7l1x61pfo9rvjkz27fjnjgko00c#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-3",
+   "source": "mailing-list",
+   "question": "Where can I find the discussion thread for the FLIP suggestion on Flink SQL Scalar Functions?",
+   "mustContain": [
+    "https://lists.apache.org/thread/rkpvlnwj9gv1hvx1dyklx6k88qpnvk2t",
+    "\u0421\u0435\u0440\u0433\u0435\u0439 \u041f\u0430\u0440\u044b\u0448\u0435\u0432"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:nt2706x3dw4b9t4jm1mk050bh3pj4ndb#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-4",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLIP-406 in Apache Flink?",
+   "mustContain": [
+    "FLIP-406",
+    "Reorganize State & Checkpointing & Recovery Configuration"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:lhlvmyg1lthrzo6whq56c0wnobtjo4m8#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-5",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-35543?",
+   "mustContain": [
+    "FLINK-35543",
+    "Upgrade Hive 2.3 connector to version 2.3.10"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:d0kml6ws22x530v1brs4h1kbf7xnwn7v#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-6",
+   "source": "mailing-list",
+   "question": "What issue is associated with Python failing to build wheels on macOS in Apache Flink?",
+   "mustContain": [
+    "FLINK-37804",
+    "Python failed to build wheels on macos"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:7ztz4br900gz17wd12mp2c5s7ktjfh53#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-7",
+   "source": "mailing-list",
+   "question": "What is FLIP-496 about in Apache Flink?",
+   "mustContain": [
+    "FLIP-496",
+    "SQL connector for keyed state data",
+    "Gabor Somogyi"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:x28pg2ycbc5mvgf165h7kxlbnwvx7mss#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-8",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-27670?",
+   "mustContain": [
+    "FLINK-27670",
+    "Python wrappers for Kinesis Sinks"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:3mfdldpbt9pvh19tl27xt6r3mwnsf6ql#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-9",
+   "source": "mailing-list",
+   "question": "Who expressed non-binding support for FLIP-323 regarding attached execution on Flink application completion for batch jobs?",
+   "mustContain": [
+    "Samrat Deb",
+    "FLIP-323",
+    "+1 (non-binding)"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:t8tqwhcsm2fs1vp5chrkjtx8814vgfzm#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-10",
+   "source": "mailing-list",
+   "question": "What is the outcome of the vote on FLIP-471 regarding watermark idleness timeout accounting?",
+   "mustContain": [
+    "FLIP-471",
+    "+1 (binding)"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:orzfgf7hysxm47o8jlogoyo09s5lwbdj#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-11",
+   "source": "mailing-list",
+   "question": "What is the outcome of the vote on FLIP-176 regarding Unified Iteration for Flink ML?",
+   "mustContain": [
+    "FLIP-176",
+    "+1 (binding)"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:noltgktwxy7sl86nr4j5qnj32fgq88w8#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-12",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-34047 in the Flink project?",
+   "mustContain": [
+    "FLINK-34047",
+    "Inject GitHub Actions/Azure Pipelines env variables",
+    "uploading_watchdog.sh"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:vgb2nh8ntjktnm49ywcxx0gllmzhzc9p#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-13",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-30083?",
+   "mustContain": [
+    "FLINK-30083",
+    "Bump maven-shade-plugin to 3.4.0"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:5k6yxk48rff4qnpv34mwz6chkdkgd7xl#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-14",
+   "source": "mailing-list",
+   "question": "Why was the lz4-java dependency switched to at.yawk.lz4 in Flink?",
+   "mustContain": [
+    "FLINK-38764",
+    "switch lz4-java to at.yawk.lz4",
+    "due to CVE"
+   ],
+   "difficulty": "hard",
+   "bucket": "year",
+   "provenance": "ml:nsrtj6rqyo1cd9wbq9m5bppjqdzjoxr1#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-15",
+   "source": "mailing-list",
+   "question": "Who was recently announced as a new Apache Flink committer?",
+   "mustContain": [
+    "Junhan Yang",
+    "Xintong Song <xtsong@apache.org>"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:towpryggcyp0cdj2tn0flf9g9bdxfkjs#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-16",
+   "source": "mailing-list",
+   "question": "What is the voting outcome for FLIP-212 regarding the Flink Kubernetes Operator?",
+   "mustContain": [
+    "FLIP-212",
+    "+1 (binding)",
+    "Danny Cranmer"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:7zldfb1bnn80toqwklnx266tw0v9zxrs#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-17",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-30579?",
+   "mustContain": [
+    "FLINK-30579",
+    "enable hive native function"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:t0ooz29gt8srphr04p7pc4b8qgwk4zw3#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-18",
+   "source": "mailing-list",
+   "question": "What issue is associated with the MemoryManagerConcurrentModReleaseTest taking too long to execute?",
+   "mustContain": [
+    "FLINK-35315",
+    "MemoryManagerConcurrentModReleaseTest"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:p3nos8c8g3kl2v1k68j75okxqmzkflyy#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-19",
+   "source": "mailing-list",
+   "question": "What is the community consensus on FLIP-340 regarding the rescale REST endpoint?",
+   "mustContain": [
+    "FLIP-340",
+    "+1"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:s79c6nhzw5wf1bb6bh4k9rz2m17fnbq0#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-20",
+   "source": "mailing-list",
+   "question": "What issue is related to problems fetching the next result in a Flink job using the Hive connector?",
+   "mustContain": [
+    "FLINK-29877",
+    "hive connector"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:19ocny2sm3nq9x5zsxk7sy2h91logbhk#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-21",
+   "source": "mailing-list",
+   "question": "What is FLIP-427 about in Apache Flink?",
+   "mustContain": [
+    "FLIP-427",
+    "FLINK-34975",
+    "Disaggregated state Store"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:8dwt6jw9bz4s1c8pqyplxbc1sggmohdq#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-22",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-26214 created by Zili Chen?",
+   "mustContain": [
+    "FLINK-26214",
+    "Publish Kubernetes operator to container registry",
+    "Zili Chen"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:bjxy7h3hvrwxbo2w7428867ns7lb7f2w#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-23",
+   "source": "mailing-list",
+   "question": "What issue does FLINK-33165 address in the Flink UI?",
+   "mustContain": [
+    "FLINK-33165",
+    "Flink UI stack trace popup continually displayed when a job is deleted"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:0djrjv7gsf4kp3ccxcbkmn5s42yloohb#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-24",
+   "source": "mailing-list",
+   "question": "What is the identifier for the proposal to migrate Apache Flink to GitHub Actions?",
+   "mustContain": [
+    "FLIP-395"
+   ],
+   "difficulty": "easy",
+   "bucket": "historical",
+   "provenance": "ml:b1llrog0f0t8841840pc3z4pvdpd3gvd#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-25",
+   "source": "mailing-list",
+   "question": "What is the focus of FLIP-309 in Apache Flink?",
+   "mustContain": [
+    "FLIP-309",
+    "trigger checkpoints dynamically"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:lgd7l55dc9moj9x7y3x0q6c35z4hnl0d#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-26",
+   "source": "mailing-list",
+   "question": "What is FLINK-26937 about?",
+   "mustContain": [
+    "FLINK-26937",
+    "Introduce Leveled compression for LSM"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:mp8zbkcrpzr7wdhocxmq8oss5yzlcp7x#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-27",
+   "source": "mailing-list",
+   "question": "What changes are needed in the UI due to FLIP-337?",
+   "mustContain": [
+    "FLIP-337",
+    "UI",
+    "parameter"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:0bfh1sr03cwyk6lyh9l1fjnjh2dzqb3l#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-28",
+   "source": "mailing-list",
+   "question": "What is the community's response to FLIP-375 regarding the Java profiler?",
+   "mustContain": [
+    "FLIP-375",
+    "+1 (non-binding)",
+    "Zhanghao Chen"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:3z5f0qt5l5xmy7f6bwn77sjh3yl7orbb#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-29",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLINK-38260 in Apache Flink?",
+   "mustContain": [
+    "FLINK-38260",
+    "Connection sql syntax"
+   ],
+   "difficulty": "medium",
+   "bucket": "year",
+   "provenance": "ml:812lqnpnx8hdmy1x305g9h88rr8tpygw#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-30",
+   "source": "mailing-list",
+   "question": "What is the purpose of FLIP-328 in Apache Flink?",
+   "mustContain": [
+    "FLIP-328",
+    "source operators",
+    "isProcessingBacklog"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:o36hxpjlcfotywn4kr503vbfh8jhjkpt#0",
+   "origin": "v2-mined"
+  }
+ ]
+}

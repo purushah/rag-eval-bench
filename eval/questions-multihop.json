@@ -1,0 +1,344 @@
+{
+ "questions": [
+  {
+   "id": "mh-1",
+   "question": "For FLINK-18476 (PythonEnvUtilsTest#testStartPythonProcess fails), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Sergey Nuyanzin"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-18476",
+    "jira_chunk": "jira:FLINK-18476#0",
+    "partner_chunk": "commit:e095557d5dbb#0",
+    "kind": "commit",
+    "ref": "e095557d5dbb"
+   }
+  },
+  {
+   "id": "mh-2",
+   "question": "For FLINK-34423 (Make tool/ci/compile_ci.sh not necessarily rely on clean phase), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Sergey Nuyanzin"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-34423",
+    "jira_chunk": "jira:FLINK-34423#0",
+    "partner_chunk": "commit:eaeefddd526f#0",
+    "kind": "commit",
+    "ref": "eaeefddd526f"
+   }
+  },
+  {
+   "id": "mh-3",
+   "question": "For FLINK-39014 (Fix the conversion to relational algebra issue in Batch Mode), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Archit Goyal"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39014",
+    "jira_chunk": "jira:FLINK-39014#0",
+    "partner_chunk": "commit:13e17094a556#0",
+    "kind": "commit",
+    "ref": "13e17094a556"
+   }
+  },
+  {
+   "id": "mh-4",
+   "question": "For FLINK-39191 (Upgrade monaco-editor to 0.55.1 to get rid of DOMPurify CVEs), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Gyula Komlossi"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39191",
+    "jira_chunk": "jira:FLINK-39191#0",
+    "partner_chunk": "commit:913207b3afa6#0",
+    "kind": "commit",
+    "ref": "913207b3afa6"
+   }
+  },
+  {
+   "id": "mh-5",
+   "question": "For FLINK-39481 (Watermark deferred by interruptible timers is lost at end of input, dr), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.2.2, 1.20.6, 2.3.1, 2.4.0",
+    "Martijn Visser"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39481",
+    "jira_chunk": "jira:FLINK-39481#0",
+    "partner_chunk": "commit:bbc688cef98b#0",
+    "kind": "commit",
+    "ref": "bbc688cef98b"
+   }
+  },
+  {
+   "id": "mh-6",
+   "question": "For FLINK-39521 (Support push-based recovery in input channels), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Rui Fan"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39521",
+    "jira_chunk": "jira:FLINK-39521#0",
+    "partner_chunk": "commit:c2f0c1234092#0",
+    "kind": "commit",
+    "ref": "c2f0c1234092"
+   }
+  },
+  {
+   "id": "mh-7",
+   "question": "For FLINK-39583 (Normalize Calcite correl variables to make subplan reuse by digest mor), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Ferenc Csaky"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39583",
+    "jira_chunk": "jira:FLINK-39583#0",
+    "partner_chunk": "commit:f9d81b2e11e5#0",
+    "kind": "commit",
+    "ref": "f9d81b2e11e5"
+   }
+  },
+  {
+   "id": "mh-8",
+   "question": "For FLINK-39771 ([JUnit5 Migration] Module: flink-cep), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Purushottam Sinha"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39771",
+    "jira_chunk": "jira:FLINK-39771#0",
+    "partner_chunk": "commit:01c950f89b25#0",
+    "kind": "commit",
+    "ref": "01c950f89b25"
+   }
+  },
+  {
+   "id": "mh-9",
+   "question": "For FLINK-39781 (Add operator for LATERAL SNAPSHOT Join), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Fabian Hueske"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39781",
+    "jira_chunk": "jira:FLINK-39781#0",
+    "partner_chunk": "commit:e9540aed0082#0",
+    "kind": "commit",
+    "ref": "e9540aed0082"
+   }
+  },
+  {
+   "id": "mh-10",
+   "question": "For FLINK-39783 (Add translation rules to convert lateral call of SNAPSHOT function int), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Fabian Hueske"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-39783",
+    "jira_chunk": "jira:FLINK-39783#0",
+    "partner_chunk": "commit:486f5291beaa#0",
+    "kind": "commit",
+    "ref": "486f5291beaa"
+   }
+  },
+  {
+   "id": "mh-11",
+   "question": "For FLINK-40035 (Add smoke-level component specs for the web-dashboard), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Purushottam Sinha"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40035",
+    "jira_chunk": "jira:FLINK-40035#0",
+    "partner_chunk": "commit:f5bb04d03b34#0",
+    "kind": "commit",
+    "ref": "f5bb04d03b34"
+   }
+  },
+  {
+   "id": "mh-12",
+   "question": "For FLINK-40036 (Support injecting a custom MockEnvironment into multi-input operator t), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Kaivalya Apte"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40036",
+    "jira_chunk": "jira:FLINK-40036#0",
+    "partner_chunk": "commit:c404d7b08e4f#0",
+    "kind": "commit",
+    "ref": "c404d7b08e4f"
+   }
+  },
+  {
+   "id": "mh-13",
+   "question": "For FLINK-40067 (RescaleTimelineITCase.testRescaleTerminatedByJobFinished fails due to), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Martijn Visser"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40067",
+    "jira_chunk": "jira:FLINK-40067#0",
+    "partner_chunk": "commit:edba4901475b#0",
+    "kind": "commit",
+    "ref": "edba4901475b"
+   }
+  },
+  {
+   "id": "mh-14",
+   "question": "For FLINK-40086 (Harden Execution#transitionState implementation by guarding preComplet), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.2.2, 1.20.6, 2.3.1, 2.4.0",
+    "Matthias Pohl"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40086",
+    "jira_chunk": "jira:FLINK-40086#0",
+    "partner_chunk": "commit:d769c08ccc95#0",
+    "kind": "commit",
+    "ref": "d769c08ccc95"
+   }
+  },
+  {
+   "id": "mh-15",
+   "question": "For FLINK-40097 (FLIP-585: Introduce Lazy Loading for HistoryServer), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Zihao Chen"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40097",
+    "jira_chunk": "jira:FLINK-40097#0",
+    "partner_chunk": "commit:d8660309854d#0",
+    "kind": "commit",
+    "ref": "d8660309854d"
+   }
+  },
+  {
+   "id": "mh-16",
+   "question": "For FLINK-40111 (Keyless upsert sink should fall back to retract when the input has no), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Gustavo de Morais"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40111",
+    "jira_chunk": "jira:FLINK-40111#0",
+    "partner_chunk": "commit:4732a5210a87#0",
+    "kind": "commit",
+    "ref": "4732a5210a87"
+   }
+  },
+  {
+   "id": "mh-17",
+   "question": "For FLINK-40112 (Report a changelog mode mismatch instead of a generic planning error), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Gustavo de Morais"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40112",
+    "jira_chunk": "jira:FLINK-40112#0",
+    "partner_chunk": "commit:8b7ebcacddcb#0",
+    "kind": "commit",
+    "ref": "8b7ebcacddcb"
+   }
+  },
+  {
+   "id": "mh-18",
+   "question": "For FLINK-40153 (CREATE TABLE LIKE cannot resolve inherited metadata columns in a deriv), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.3.1",
+    "lincoln lee"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40153",
+    "jira_chunk": "jira:FLINK-40153#0",
+    "partner_chunk": "commit:a417739e30e1#0",
+    "kind": "commit",
+    "ref": "a417739e30e1"
+   }
+  },
+  {
+   "id": "mh-19",
+   "question": "For FLINK-40169 (Add target option to the EARLY_FIRE hint), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Weiqing Yang"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40169",
+    "jira_chunk": "jira:FLINK-40169#0",
+    "partner_chunk": "commit:75d978ef1d90#0",
+    "kind": "commit",
+    "ref": "75d978ef1d90"
+   }
+  },
+  {
+   "id": "mh-20",
+   "question": "For FLINK-40208 (Support adding jobConfiguration keys of choice to logging MDC), which release fixes it, and who authored the commit that resolved it?",
+   "mustContain": [
+    "fix: 2.4.0",
+    "Aleksandr Iushmanov"
+   ],
+   "source": "multi-hop",
+   "bucket": "recent",
+   "meta": {
+    "key": "FLINK-40208",
+    "jira_chunk": "jira:FLINK-40208#0",
+    "partner_chunk": "commit:2779964b5968#0",
+    "kind": "commit",
+    "ref": "2779964b5968"
+   }
+  }
+ ]
+}

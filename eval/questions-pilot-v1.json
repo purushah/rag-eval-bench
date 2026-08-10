@@ -1,0 +1,308 @@
+{
+ "_comment": "Source-stratified eval set (28 questions) grounded in REAL, verified Apache Flink artifacts. Every gold fact below was confirmed against issues.apache.org (Jira), github.com/apache/flink (PRs/authors), cwiki.apache.org (FLIPs), or nightlies.apache.org (config/docs) \u2014 no fabricated IDs. 'source' groups questions the way they were requested: general (Flink docs/concepts), jira (issue-tracker content), pr-commit (GitHub PR/commit content), mailing-list (dev@ discussion content). 'mustContain' = case-insensitive substrings correct retrieval must surface; the scorer only reads 'mustContain'. 'difficulty'/'expectedStrength' are analysis metadata. NOTE: PR-author handles (AHeise, wsry, 1996fanrui, SteNicholas) are real Flink committer GitHub usernames and double as discriminating gold facts. Adjust gold facts to YOUR corpus's stored format if it differs (e.g. 'PR-12493' vs '12493').",
+ "questions": [
+  {
+   "id": "gen-1",
+   "source": "general",
+   "question": "What does the state.backend (state.backend.type) option control, and what are its valid values?",
+   "mustContain": [
+    "state.backend",
+    "rocksdb"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-2",
+   "source": "general",
+   "question": "Which configuration option sets how often Flink triggers a checkpoint?",
+   "mustContain": [
+    "execution.checkpointing.interval"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-3",
+   "source": "general",
+   "question": "How do you assign timestamps and watermarks to a source in modern Flink DataStream?",
+   "mustContain": [
+    "WatermarkStrategy"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-4",
+   "source": "general",
+   "question": "Which configuration controls how a Flink job recovers after a failure?",
+   "mustContain": [
+    "restart-strategy"
+   ],
+   "difficulty": "easy",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-5",
+   "source": "general",
+   "question": "What memory does the RocksDB state backend draw from, and which option sizes it?",
+   "mustContain": [
+    "taskmanager.memory.managed",
+    "rocksdb"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-6",
+   "source": "general",
+   "question": "What are unaligned checkpoints and which configuration enables them?",
+   "mustContain": [
+    "unaligned",
+    "execution.checkpointing.unaligned"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-7",
+   "source": "general",
+   "question": "Which configuration option lets checkpoints continue after some tasks have finished?",
+   "mustContain": [
+    "checkpoints-after-tasks-finish"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "vector"
+  },
+  {
+   "id": "gen-8",
+   "source": "general",
+   "question": "How does Flink guarantee exactly-once output to external systems, and what mechanism do transactional sinks rely on?",
+   "mustContain": [
+    "exactly-once",
+    "checkpoint"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "graph"
+  },
+  {
+   "id": "jira-1",
+   "source": "jira",
+   "question": "Which Jira issue is the umbrella for unaligned checkpoints, and what does it track?",
+   "mustContain": [
+    "FLINK-14551",
+    "unaligned"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "jira-2",
+   "source": "jira",
+   "question": "Which Jira issue is the umbrella for the FLIP-27 source interface refactor?",
+   "mustContain": [
+    "FLINK-10740",
+    "FLIP-27"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "jira-3",
+   "source": "jira",
+   "question": "Which Jira issue implements FLIP-147 (support checkpoints after tasks finished)?",
+   "mustContain": [
+    "FLINK-2491",
+    "FLIP-147"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "jira-4",
+   "source": "jira",
+   "question": "Which Jira issue added the new Source API classes under FLIP-27?",
+   "mustContain": [
+    "FLINK-15131",
+    "Source"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "jira-5",
+   "source": "jira",
+   "question": "Which Jira issue describes the long-standing problem that checkpointing is aborted if any task has finished?",
+   "mustContain": [
+    "FLINK-9640",
+    "finished"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "jira-6",
+   "source": "jira",
+   "question": "Which Jira issue tracks the 1.15 follow-up tasks and code improvements for FLIP-147?",
+   "mustContain": [
+    "FLINK-23883",
+    "FLIP-147"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "jira-7",
+   "source": "jira",
+   "question": "Which Jira issue refactored the Google Cloud Pub/Sub source to comply with FLIP-27?",
+   "mustContain": [
+    "FLINK-20625",
+    "FLIP-27"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-1",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-18139) fixed unaligned checkpoints checking the wrong channels for in-flight data, and who authored it?",
+   "mustContain": [
+    "FLINK-18139",
+    "AHeise"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-2",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-27251) added timeout from aligned to unaligned checkpoint barrier in the output buffers, and who authored it?",
+   "mustContain": [
+    "FLINK-27251",
+    "1996fanrui"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-3",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-17568) fixed a task consuming input data after the checkpoint barrier before the unaligned checkpoint was performed, and who authored it?",
+   "mustContain": [
+    "FLINK-17568",
+    "wsry"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-4",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-16404) avoided caching buffers for blocked input channels before barrier alignment, and who authored it?",
+   "mustContain": [
+    "FLINK-16404",
+    "wsry"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-5",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-22301) made the state backend and checkpoint storage type visible in the Web UI, and who authored it?",
+   "mustContain": [
+    "FLINK-22301",
+    "SteNicholas"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-6",
+   "source": "pr-commit",
+   "question": "Which pull request (FLINK-17258) enabled unaligned checkpoints in all tests by default, and who authored it?",
+   "mustContain": [
+    "FLINK-17258",
+    "AHeise"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "pr-7",
+   "source": "pr-commit",
+   "question": "Which source file in flink-core defines the checkpointing configuration options?",
+   "mustContain": [
+    "CheckpointingOptions"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "ml-1",
+   "source": "mailing-list",
+   "question": "What did the dev@ discussion for FLIP-147 conclude about splitting StreamOperator#close so a final checkpoint can be taken after records are flushed?",
+   "mustContain": [
+    "FLIP-147",
+    "close"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "ml-2",
+   "source": "mailing-list",
+   "question": "What concerns did the community raise on the dev mailing list when proposing unaligned checkpoints (FLIP-76)?",
+   "mustContain": [
+    "FLIP-76",
+    "unaligned"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "ml-3",
+   "source": "mailing-list",
+   "question": "What design goals were discussed on the dev mailing list for refactoring the source interface (FLIP-27)?",
+   "mustContain": [
+    "FLIP-27",
+    "Source"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "ml-4",
+   "source": "mailing-list",
+   "question": "What was the rationale discussed for enabling unaligned checkpoints by default (FLIP-413)?",
+   "mustContain": [
+    "FLIP-413",
+    "unaligned"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "ml-5",
+   "source": "mailing-list",
+   "question": "What was proposed on the dev mailing list for a FLIP-27-based data generator source (FLIP-238)?",
+   "mustContain": [
+    "FLIP-238",
+    "FLIP-27"
+   ],
+   "difficulty": "medium",
+   "expectedStrength": "agent"
+  },
+  {
+   "id": "ml-6",
+   "source": "mailing-list",
+   "question": "Across the dev@ checkpointing discussions, what recurring theme connects backpressure, in-flight data, and checkpoint timeouts?",
+   "mustContain": [
+    "backpressure",
+    "unaligned"
+   ],
+   "difficulty": "hard",
+   "expectedStrength": "graph"
+  }
+ ]
+}
