@@ -1,708 +1,708 @@
 {
- "description": "Staleness-stratified questions: the correct answer CHANGED over Flink's history. Each question is phrased as a present-day user would ask it (no version hint). currentPatterns = regex for the current (2026 / Flink 2.x-era) answer; stalePatterns = regex for the superseded answer. Both forms verified present in the 5-year corpus (ai_test_5y) so the conflict exists in-index; the 1-month corpus contains almost exclusively the current forms.",
- "questions": [
-  {
-   "id": "stale-1",
-   "question": "Which configuration option do I set to choose the state backend for my Flink job?",
-   "currentPatterns": [
-    "state\\.backend\\.type"
-   ],
-   "stalePatterns": [
-    "state\\.backend(?!\\.type)(?!\\.[a-z])\\b"
-   ],
-   "current": "state.backend.type",
-   "stale": "state.backend",
-   "changed": "1.17 (FLINK-29372): state.backend renamed to state.backend.type"
-  },
-  {
-   "id": "stale-2",
-   "question": "Which Java class do I use to configure the RocksDB state backend programmatically?",
-   "currentPatterns": [
-    "EmbeddedRocksDBStateBackend"
-   ],
-   "stalePatterns": [
-    "(?<!Embedded)RocksDBStateBackend"
-   ],
-   "current": "EmbeddedRocksDBStateBackend",
-   "stale": "RocksDBStateBackend",
-   "changed": "1.13 (FLIP-41): RocksDBStateBackend split into EmbeddedRocksDBStateBackend + checkpoint storage"
-  },
-  {
-   "id": "stale-3",
-   "question": "Which state backend should I use if I want state kept on the JVM heap?",
-   "currentPatterns": [
-    "HashMapStateBackend"
-   ],
-   "stalePatterns": [
-    "MemoryStateBackend",
-    "FsStateBackend"
-   ],
-   "current": "HashMapStateBackend",
-   "stale": "MemoryStateBackend / FsStateBackend",
-   "changed": "1.13 (FLIP-41): MemoryStateBackend/FsStateBackend deprecated in favor of HashMapStateBackend + checkpoint storage"
-  },
-  {
-   "id": "stale-4",
-   "question": "Which connector class do I use to consume a Kafka topic in a Flink DataStream job?",
-   "currentPatterns": [
-    "KafkaSource"
-   ],
-   "stalePatterns": [
-    "FlinkKafkaConsumer"
-   ],
-   "current": "KafkaSource",
-   "stale": "FlinkKafkaConsumer",
-   "changed": "1.14 (FLIP-27 rework): FlinkKafkaConsumer deprecated, removed in connector 3.x"
-  },
-  {
-   "id": "stale-5",
-   "question": "Which connector class do I use to write a DataStream to Kafka?",
-   "currentPatterns": [
-    "KafkaSink"
-   ],
-   "stalePatterns": [
-    "FlinkKafkaProducer"
-   ],
-   "current": "KafkaSink",
-   "stale": "FlinkKafkaProducer",
-   "changed": "1.15 (FLIP-143): FlinkKafkaProducer deprecated in favor of KafkaSink"
-  },
-  {
-   "id": "stale-6",
-   "question": "I want to implement a custom source connector for Flink. Which API should I implement?",
-   "currentPatterns": [
-    "FLIP-27",
-    "\\bSource\\b.{0,40}(interface|API)",
-    "SplitEnumerator",
-    "SourceReader"
-   ],
-   "stalePatterns": [
-    "SourceFunction"
-   ],
-   "current": "new Source API (FLIP-27: Source/SplitEnumerator/SourceReader)",
-   "stale": "SourceFunction",
-   "changed": "1.11+ (FLIP-27): SourceFunction deprecated (1.18), removed in 2.0"
-  },
-  {
-   "id": "stale-7",
-   "question": "I want to implement a custom sink connector for Flink. Which API should I implement?",
-   "currentPatterns": [
-    "SinkV2",
-    "Sink2",
-    "unified [Ss]ink",
-    "FLIP-191",
-    "FLIP-143"
-   ],
-   "stalePatterns": [
-    "SinkFunction"
-   ],
-   "current": "unified Sink API (SinkV2, FLIP-143/191)",
-   "stale": "SinkFunction",
-   "changed": "1.15 (FLIP-143/191): SinkFunction deprecated, removed in 2.0"
-  },
-  {
-   "id": "stale-8",
-   "question": "What is the name of the main configuration file for a Flink deployment?",
-   "currentPatterns": [
-    "(?<!flink-)config\\.yaml"
-   ],
-   "stalePatterns": [
-    "flink-conf\\.yaml"
-   ],
-   "current": "config.yaml",
-   "stale": "flink-conf.yaml",
-   "changed": "1.19/2.0 (FLIP-366): flink-conf.yaml replaced by config.yaml"
-  },
-  {
-   "id": "stale-9",
-   "question": "Which Flink API should I use for batch processing jobs?",
-   "currentPatterns": [
-    "DataStream.{0,40}(batch|BATCH)",
-    "BATCH execution mode",
-    "Table API",
-    "batch (execution )?mode"
-   ],
-   "stalePatterns": [
-    "DataSet"
-   ],
-   "current": "DataStream API in BATCH execution mode (or Table/SQL API)",
-   "stale": "DataSet API",
-   "changed": "1.12 (FLIP-131): DataSet deprecated; removed in 2.0"
-  },
-  {
-   "id": "stale-10",
-   "question": "Which configuration option enables high availability for a Flink cluster?",
-   "currentPatterns": [
-    "high-availability\\.type"
-   ],
-   "stalePatterns": [
-    "high-availability(?!\\.type)(?!\\.[a-z])\\s*[:=]"
-   ],
-   "current": "high-availability.type",
-   "stale": "high-availability",
-   "changed": "1.17: high-availability renamed to high-availability.type"
-  },
-  {
-   "id": "stale-11",
-   "question": "Which configuration keys control the amount of network memory a TaskManager uses?",
-   "currentPatterns": [
-    "taskmanager\\.memory\\.network"
-   ],
-   "stalePatterns": [
-    "taskmanager\\.network\\.memory"
-   ],
-   "current": "taskmanager.memory.network.*",
-   "stale": "taskmanager.network.memory.*",
-   "changed": "1.10 (FLIP-49): network memory keys moved under taskmanager.memory.network"
-  },
-  {
-   "id": "stale-12",
-   "question": "What is the recommended deployment mode for running a single Flink job on Kubernetes?",
-   "currentPatterns": [
-    "[Aa]pplication [Mm]ode"
-   ],
-   "stalePatterns": [
-    "[Pp]er-[Jj]ob (mode|cluster)"
-   ],
-   "current": "Application Mode",
-   "stale": "per-job mode",
-   "changed": "1.15: per-job mode deprecated (removed 1.18/2.0); Application Mode is the replacement"
-  },
-  {
-   "id": "stale-13",
-   "question": "How do I set up event-time processing with watermarks in the DataStream API?",
-   "currentPatterns": [
-    "WatermarkStrategy"
-   ],
-   "stalePatterns": [
-    "setStreamTimeCharacteristic",
-    "TimeCharacteristic"
-   ],
-   "current": "WatermarkStrategy (assignTimestampsAndWatermarks(WatermarkStrategy...))",
-   "stale": "setStreamTimeCharacteristic(TimeCharacteristic.EventTime)",
-   "changed": "1.12 (FLIP-134): TimeCharacteristic deprecated; event time is the default, configured via WatermarkStrategy"
-  },
-  {
-   "id": "stale-14",
-   "question": "How do I make a DataStream queryable as a table from SQL in Flink?",
-   "currentPatterns": [
-    "createTemporaryView"
-   ],
-   "stalePatterns": [
-    "registerTable",
-    "registerDataStream"
-   ],
-   "current": "createTemporaryView",
-   "stale": "registerTable / registerDataStream",
-   "changed": "1.10 (FLIP-64): registerTable/registerDataStream deprecated in favor of createTemporaryView"
-  },
-  {
-   "id": "stale-15",
-   "question": "Is the Scala DataStream API a good choice for a new Flink project?",
-   "currentPatterns": [
-    "[Dd]eprecated",
-    "[Rr]emoved",
-    "use.{0,20}Java"
-   ],
-   "stalePatterns": [
-    "[Yy]es.{0,80}[Ss]cala"
-   ],
-   "current": "No \u2014 the Scala API is deprecated (1.17, FLIP-265) and removed in 2.0; use the Java API",
-   "stale": "recommending the Scala API",
-   "changed": "1.17 (FLIP-265): Scala API deprecated; removed in Flink 2.0"
-  },
-  {
-   "id": "stale-16",
-   "question": "Which class do I extend to write a rich sink that opens a database connection in Flink?",
-   "currentPatterns": [
-    "SinkV2",
-    "Sink2",
-    "FLIP-171",
-    "JdbcSink",
-    "unified [Ss]ink"
-   ],
-   "stalePatterns": [
-    "RichSinkFunction"
-   ],
-   "current": "the unified Sink API (SinkV2) / connector-specific sinks like JdbcSink",
-   "stale": "RichSinkFunction",
-   "changed": "1.15+: SinkFunction family deprecated, removed in 2.0"
-  },
-  {
-   "id": "stale-17",
-   "question": "Which sink should I use to write streaming data as files to S3 or HDFS?",
-   "currentPatterns": [
-    "FileSink"
-   ],
-   "stalePatterns": [
-    "StreamingFileSink",
-    "BucketingSink"
-   ],
-   "current": "FileSink (unified)",
-   "stale": "StreamingFileSink / BucketingSink",
-   "changed": "1.12/1.17: BucketingSink removed, StreamingFileSink deprecated -> FileSink"
-  },
-  {
-   "id": "stale-18",
-   "question": "How do I apply a tumbling window of 10 seconds on a keyed stream?",
-   "currentPatterns": [
-    "TumblingEventTimeWindows",
-    "TumblingProcessingTimeWindows",
-    "window\\("
-   ],
-   "stalePatterns": [
-    "timeWindow\\("
-   ],
-   "current": "window(TumblingEventTimeWindows.of(...))",
-   "stale": "timeWindow(...)",
-   "changed": "1.12: KeyedStream.timeWindow deprecated, removed 1.14"
-  },
-  {
-   "id": "stale-19",
-   "question": "Which class do I use to specify window sizes and time intervals in the DataStream API?",
-   "currentPatterns": [
-    "Duration"
-   ],
-   "stalePatterns": [
-    "windowing\\.time\\.Time",
-    "Time\\.seconds",
-    "Time\\.minutes"
-   ],
-   "current": "java.time.Duration",
-   "stale": "org.apache.flink...Time.seconds(...)",
-   "changed": "2.0: Time class removed in favor of java.time.Duration"
-  },
-  {
-   "id": "stale-20",
-   "question": "Which configuration prefix do I use to tune RPC timeouts like the ask timeout in Flink?",
-   "currentPatterns": [
-    "pekko",
-    "rpc\\.ask"
-   ],
-   "stalePatterns": [
-    "akka\\."
-   ],
-   "current": "pekko.* / rpc.*",
-   "stale": "akka.*",
-   "changed": "1.18: Akka replaced by Pekko; akka.* keys renamed"
-  },
-  {
-   "id": "stale-21",
-   "question": "Which configuration option sets the directory where checkpoints are stored?",
-   "currentPatterns": [
-    "execution\\.checkpointing\\.dir"
-   ],
-   "stalePatterns": [
-    "state\\.checkpoints\\.dir"
-   ],
-   "current": "execution.checkpointing.dir",
-   "stale": "state.checkpoints.dir",
-   "changed": "2.0 (FLINK-34255): state.checkpoints.dir renamed"
-  },
-  {
-   "id": "stale-22",
-   "question": "Which configuration option sets the default savepoint directory?",
-   "currentPatterns": [
-    "execution\\.checkpointing\\.savepoint-dir"
-   ],
-   "stalePatterns": [
-    "state\\.savepoints\\.dir"
-   ],
-   "current": "execution.checkpointing.savepoint-dir",
-   "stale": "state.savepoints.dir",
-   "changed": "2.0: state.savepoints.dir renamed"
-  },
-  {
-   "id": "stale-23",
-   "question": "Which configuration option enables incremental checkpoints for RocksDB?",
-   "currentPatterns": [
-    "execution\\.checkpointing\\.incremental"
-   ],
-   "stalePatterns": [
-    "state\\.backend\\.incremental"
-   ],
-   "current": "execution.checkpointing.incremental",
-   "stale": "state.backend.incremental",
-   "changed": "2.0: state.backend.incremental renamed"
-  },
-  {
-   "id": "stale-24",
-   "question": "How do I configure a fixed-delay restart strategy for my Flink job?",
-   "currentPatterns": [
-    "restart-strategy\\.type",
-    "restart-strategy(\\.fixed-delay)?"
-   ],
-   "stalePatterns": [
-    "RestartStrategies\\."
-   ],
-   "current": "config: restart-strategy.type: fixed-delay",
-   "stale": "env.setRestartStrategy(RestartStrategies.fixedDelayRestart(...))",
-   "changed": "1.19: programmatic RestartStrategies deprecated -> configuration"
-  },
-  {
-   "id": "stale-25",
-   "question": "Which TableEnvironment method do I call to run an INSERT INTO SQL statement?",
-   "currentPatterns": [
-    "executeSql"
-   ],
-   "stalePatterns": [
-    "sqlUpdate"
-   ],
-   "current": "executeSql",
-   "stale": "sqlUpdate",
-   "changed": "1.11 (FLIP-84): sqlUpdate deprecated -> executeSql"
-  },
-  {
-   "id": "stale-26",
-   "question": "How do I define a tumbling window aggregation in Flink SQL today?",
-   "currentPatterns": [
-    "TUMBLE\\(TABLE",
-    "window TVF",
-    "windowing TVF"
-   ],
-   "stalePatterns": [
-    "GROUP BY TUMBLE\\("
-   ],
-   "current": "windowing TVFs: TUMBLE(TABLE ...)",
-   "stale": "GROUP BY TUMBLE(...)",
-   "changed": "1.13 (FLIP-145): group window functions deprecated -> window TVFs"
-  },
-  {
-   "id": "stale-27",
-   "question": "Which Table API planner should I configure for a new Flink project?",
-   "currentPatterns": [
-    "[Bb]link is (the )?default",
-    "default planner",
-    "no.{0,30}planner (choice|option|setting)",
-    "only.{0,20}planner"
-   ],
-   "stalePatterns": [
-    "legacy planner",
-    "useOldPlanner",
-    "useBlinkPlanner"
-   ],
-   "current": "none - the (Blink) planner is the only one; no planner setting needed",
-   "stale": "legacy/old planner or explicit useBlinkPlanner()",
-   "changed": "1.14: legacy planner removed; planner selection obsolete"
-  },
-  {
-   "id": "stale-28",
-   "question": "Which DataStream method do I call to attach a Kafka sink to my stream?",
-   "currentPatterns": [
-    "sinkTo"
-   ],
-   "stalePatterns": [
-    "addSink"
-   ],
-   "current": "sinkTo(KafkaSink...)",
-   "stale": "addSink(new FlinkKafkaProducer...)",
-   "changed": "1.15: addSink(SinkFunction) superseded by sinkTo(Sink)"
-  },
-  {
-   "id": "stale-29",
-   "question": "How do I route elements of a DataStream into multiple separate streams?",
-   "currentPatterns": [
-    "side.?output",
-    "OutputTag"
-   ],
-   "stalePatterns": [
-    "\\.split\\(",
-    "SplitStream"
-   ],
-   "current": "side outputs (OutputTag + ctx.output)",
-   "stale": "DataStream.split()",
-   "changed": "1.12: split() removed -> side outputs"
-  },
-  {
-   "id": "stale-30",
-   "question": "Which interface should my source/operator implement to snapshot operator state for checkpoints?",
-   "currentPatterns": [
-    "CheckpointedFunction"
-   ],
-   "stalePatterns": [
-    "ListCheckpointed"
-   ],
-   "current": "CheckpointedFunction",
-   "stale": "ListCheckpointed",
-   "changed": "1.8-deprecated, removed 2.0: ListCheckpointed -> CheckpointedFunction"
-  },
-  {
-   "id": "stale-31",
-   "question": "How do I read a text file as a streaming source in Flink?",
-   "currentPatterns": [
-    "FileSource"
-   ],
-   "stalePatterns": [
-    "readTextFile"
-   ],
-   "current": "FileSource (connector-files)",
-   "stale": "StreamExecutionEnvironment.readTextFile",
-   "changed": "1.16: readTextFile deprecated -> FileSource"
-  },
-  {
-   "id": "stale-32",
-   "question": "Is queryable state a good way to expose Flink job state to external applications?",
-   "currentPatterns": [
-    "[Dd]eprecated",
-    "[Rr]emoved",
-    "external (store|system|database)",
-    "state processor"
-   ],
-   "stalePatterns": [
-    "[Yy]es.{0,60}queryable"
-   ],
-   "current": "No - queryable state was deprecated (1.18) and removed; export to an external store",
-   "stale": "recommending queryable state",
-   "changed": "1.18 (FLIP-357): queryable state deprecated, removed in 2.0"
-  },
-  {
-   "id": "stale-33",
-   "question": "Can I deploy Flink on Apache Mesos?",
-   "currentPatterns": [
-    "[Nn]o longer",
-    "[Rr]emoved",
-    "[Dd]eprecated",
-    "Kubernetes|YARN"
-   ],
-   "stalePatterns": [
-    "[Yy]es.{0,60}[Mm]esos"
-   ],
-   "current": "No - Mesos support was removed in 1.14; use Kubernetes or YARN",
-   "stale": "recommending Mesos deployment",
-   "changed": "1.14 (FLINK-22352): Mesos support removed"
-  },
-  {
-   "id": "stale-34",
-   "question": "Which deserialization interface do I implement for records in the Kafka source connector?",
-   "currentPatterns": [
-    "KafkaRecordDeserializationSchema"
-   ],
-   "stalePatterns": [
-    "KafkaDeserializationSchema(?!.{0,5}Record)"
-   ],
-   "current": "KafkaRecordDeserializationSchema",
-   "stale": "KafkaDeserializationSchema",
-   "changed": "1.14: KafkaSource uses KafkaRecordDeserializationSchema"
-  },
-  {
-   "id": "stale-35",
-   "question": "Which connector class do I use to consume an Amazon Kinesis stream in Flink?",
-   "currentPatterns": [
-    "KinesisStreamsSource"
-   ],
-   "stalePatterns": [
-    "FlinkKinesisConsumer"
-   ],
-   "current": "KinesisStreamsSource",
-   "stale": "FlinkKinesisConsumer",
-   "changed": "connector 5.0 (2024): FlinkKinesisConsumer deprecated -> KinesisStreamsSource"
-  },
-  {
-   "id": "stale-36",
-   "question": "Which configuration option sets the port of the Flink web UI / REST endpoint?",
-   "currentPatterns": [
-    "rest\\.port"
-   ],
-   "stalePatterns": [
-    "web\\.port"
-   ],
-   "current": "rest.port",
-   "stale": "web.port",
-   "changed": "1.5 (FLIP-6): web.port -> rest.port"
-  },
-  {
-   "id": "stale-37",
-   "question": "Which enum/setting controls whether externalized checkpoints are retained on job cancellation?",
-   "currentPatterns": [
-    "ExternalizedCheckpointRetention",
-    "externalized-checkpoint-retention"
-   ],
-   "stalePatterns": [
-    "ExternalizedCheckpointCleanup"
-   ],
-   "current": "ExternalizedCheckpointRetention / execution.checkpointing.externalized-checkpoint-retention",
-   "stale": "ExternalizedCheckpointCleanup",
-   "changed": "2.0 (FLINK-32570): enum renamed"
-  },
-  {
-   "id": "stale-38",
-   "question": "How do I get the index of the current parallel subtask inside a RichFunction?",
-   "currentPatterns": [
-    "getTaskInfo\\(\\)"
-   ],
-   "stalePatterns": [
-    "getRuntimeContext\\(\\)\\.getIndexOfThisSubtask|getIndexOfThisSubtask(?!.{0,40}getTaskInfo)"
-   ],
-   "current": "getRuntimeContext().getTaskInfo().getIndexOfThisSubtask()",
-   "stale": "getRuntimeContext().getIndexOfThisSubtask()",
-   "changed": "2.0 (FLINK-33905): accessors moved to TaskInfo"
-  },
-  {
-   "id": "stale-39",
-   "question": "How do I register a user-defined scalar function so it can be used from Flink SQL?",
-   "currentPatterns": [
-    "createTemporarySystemFunction",
-    "createTemporaryFunction"
-   ],
-   "stalePatterns": [
-    "registerFunction"
-   ],
-   "current": "createTemporarySystemFunction",
-   "stale": "TableEnvironment.registerFunction",
-   "changed": "1.12 (FLIP-65): registerFunction deprecated"
-  },
-  {
-   "id": "stale-40",
-   "question": "Which configuration option sets the total memory of a TaskManager?",
-   "currentPatterns": [
-    "taskmanager\\.memory\\.process\\.size",
-    "taskmanager\\.memory\\.flink\\.size"
-   ],
-   "stalePatterns": [
-    "taskmanager\\.heap\\.size"
-   ],
-   "current": "taskmanager.memory.process.size",
-   "stale": "taskmanager.heap.size",
-   "changed": "1.10 (FLIP-49): TM memory model reworked"
-  },
-  {
-   "id": "stale-41",
-   "question": "Which configuration option sets the total memory of the JobManager?",
-   "currentPatterns": [
-    "jobmanager\\.memory\\.process\\.size"
-   ],
-   "stalePatterns": [
-    "jobmanager\\.heap\\.size"
-   ],
-   "current": "jobmanager.memory.process.size",
-   "stale": "jobmanager.heap.size",
-   "changed": "1.11 (FLIP-116): JM memory model reworked"
-  },
-  {
-   "id": "stale-42",
-   "question": "Which sink do I use to write a DataStream to Elasticsearch 8?",
-   "currentPatterns": [
-    "Elasticsearch8AsyncSink",
-    "elasticsearch8"
-   ],
-   "stalePatterns": [
-    "ElasticsearchSink(?!.{0,20}8)"
-   ],
-   "current": "Elasticsearch8AsyncSink (connector-elasticsearch8)",
-   "stale": "ElasticsearchSink (ES6/7 style)",
-   "changed": "2023+: ES8 async sink replaces ElasticsearchSink"
-  },
-  {
-   "id": "stale-43",
-   "question": "From which package do I import CheckpointingMode when configuring exactly-once checkpointing?",
-   "currentPatterns": [
-    "core\\.execution\\.CheckpointingMode",
-    "org\\.apache\\.flink\\.core"
-   ],
-   "stalePatterns": [
-    "streaming\\.api\\.CheckpointingMode"
-   ],
-   "current": "org.apache.flink.core.execution.CheckpointingMode",
-   "stale": "org.apache.flink.streaming.api.CheckpointingMode",
-   "changed": "2.0 (FLINK-34516): class moved to flink-core"
-  },
-  {
-   "id": "stale-44",
-   "question": "How do I collect the results of a DataStream into my client program for testing?",
-   "currentPatterns": [
-    "executeAndCollect"
-   ],
-   "stalePatterns": [
-    "DataStreamUtils"
-   ],
-   "current": "DataStream.executeAndCollect()",
-   "stale": "DataStreamUtils.collect()",
-   "changed": "1.12: DataStreamUtils.collect deprecated"
-  },
-  {
-   "id": "stale-45",
-   "question": "Which configuration option sets the directories Flink uses for local temporary files?",
-   "currentPatterns": [
-    "io\\.tmp\\.dirs"
-   ],
-   "stalePatterns": [
-    "taskmanager\\.tmp\\.dirs"
-   ],
-   "current": "io.tmp.dirs",
-   "stale": "taskmanager.tmp.dirs",
-   "changed": "1.10ish: taskmanager.tmp.dirs -> io.tmp.dirs"
-  },
-  {
-   "id": "stale-46",
-   "question": "Which Table API method do I call to write a Table into a registered sink table?",
-   "currentPatterns": [
-    "executeInsert"
-   ],
-   "stalePatterns": [
-    "insertInto"
-   ],
-   "current": "executeInsert",
-   "stale": "insertInto",
-   "changed": "1.11 (FLIP-84): insertInto deprecated -> executeInsert"
-  },
-  {
-   "id": "stale-47",
-   "question": "Which TableEnvironment do I use for batch queries in the Table API?",
-   "currentPatterns": [
-    "EnvironmentSettings\\.inBatchMode",
-    "inBatchMode",
-    "unified TableEnvironment"
-   ],
-   "stalePatterns": [
-    "BatchTableEnvironment"
-   ],
-   "current": "TableEnvironment with EnvironmentSettings.inBatchMode()",
-   "stale": "BatchTableEnvironment",
-   "changed": "1.14: BatchTableEnvironment removed with legacy planner"
-  },
-  {
-   "id": "stale-48",
-   "question": "Do I need to call useBlinkPlanner() when creating EnvironmentSettings?",
-   "currentPatterns": [
-    "[Nn]o(t| longer)? (needed|necessary|required)",
-    "[Rr]emoved",
-    "default"
-   ],
-   "stalePatterns": [
-    "useBlinkPlanner"
-   ],
-   "current": "No - the Blink planner is the only planner; the method was removed",
-   "stale": "calling useBlinkPlanner()",
-   "changed": "1.14: planner selection methods removed"
-  },
-  {
-   "id": "stale-49",
-   "question": "Which class do I use to assign bounded-out-of-orderness watermarks?",
-   "currentPatterns": [
-    "forBoundedOutOfOrderness",
-    "WatermarkStrategy"
-   ],
-   "stalePatterns": [
-    "BoundedOutOfOrdernessTimestampExtractor"
-   ],
-   "current": "WatermarkStrategy.forBoundedOutOfOrderness(...)",
-   "stale": "BoundedOutOfOrdernessTimestampExtractor",
-   "changed": "1.11 (FLIP-126): watermark generators reworked"
-  },
-  {
-   "id": "stale-50",
-   "question": "How do I enable retained (externalized) checkpoints programmatically?",
-   "currentPatterns": [
-    "externalized-checkpoint-retention",
-    "setExternalizedCheckpointRetention",
-    "RETAIN_ON_CANCELLATION.{0,40}Retention|Retention"
-   ],
-   "stalePatterns": [
-    "enableExternalizedCheckpoints"
-   ],
-   "current": "config execution.checkpointing.externalized-checkpoint-retention / setExternalizedCheckpointRetention",
-   "stale": "enableExternalizedCheckpoints(ExternalizedCheckpointCleanup...)",
-   "changed": "1.20/2.0: API renamed"
-  }
- ]
+  "description": "Staleness-stratified questions: the correct answer CHANGED over Flink's history. Each question is phrased as a present-day user would ask it (no version hint). currentPatterns = regex for the current (2026 / Flink 2.x-era) answer; stalePatterns = regex for the superseded answer. Both forms verified present in the 5-year corpus (ai_test_5y) so the conflict exists in-index; the 1-month corpus contains almost exclusively the current forms.",
+  "questions": [
+    {
+      "id": "stale-1",
+      "question": "Which configuration option do I set to choose the state backend for my Flink job?",
+      "currentPatterns": [
+        "state\\.backend\\.type"
+      ],
+      "stalePatterns": [
+        "state\\.backend(?!\\.type)(?!\\.[a-z])\\b"
+      ],
+      "current": "state.backend.type",
+      "stale": "state.backend",
+      "changed": "1.17 (FLINK-29372): state.backend renamed to state.backend.type"
+    },
+    {
+      "id": "stale-2",
+      "question": "Which Java class do I use to configure the RocksDB state backend programmatically?",
+      "currentPatterns": [
+        "EmbeddedRocksDBStateBackend"
+      ],
+      "stalePatterns": [
+        "(?<!Embedded)RocksDBStateBackend"
+      ],
+      "current": "EmbeddedRocksDBStateBackend",
+      "stale": "RocksDBStateBackend",
+      "changed": "1.13 (FLIP-41): RocksDBStateBackend split into EmbeddedRocksDBStateBackend + checkpoint storage"
+    },
+    {
+      "id": "stale-3",
+      "question": "Which state backend should I use if I want state kept on the JVM heap?",
+      "currentPatterns": [
+        "HashMapStateBackend"
+      ],
+      "stalePatterns": [
+        "MemoryStateBackend",
+        "FsStateBackend"
+      ],
+      "current": "HashMapStateBackend",
+      "stale": "MemoryStateBackend / FsStateBackend",
+      "changed": "1.13 (FLIP-41): MemoryStateBackend/FsStateBackend deprecated in favor of HashMapStateBackend + checkpoint storage"
+    },
+    {
+      "id": "stale-4",
+      "question": "Which connector class do I use to consume a Kafka topic in a Flink DataStream job?",
+      "currentPatterns": [
+        "KafkaSource"
+      ],
+      "stalePatterns": [
+        "FlinkKafkaConsumer"
+      ],
+      "current": "KafkaSource",
+      "stale": "FlinkKafkaConsumer",
+      "changed": "1.14 (FLIP-27 rework): FlinkKafkaConsumer deprecated, removed in connector 3.x"
+    },
+    {
+      "id": "stale-5",
+      "question": "Which connector class do I use to write a DataStream to Kafka?",
+      "currentPatterns": [
+        "KafkaSink"
+      ],
+      "stalePatterns": [
+        "FlinkKafkaProducer"
+      ],
+      "current": "KafkaSink",
+      "stale": "FlinkKafkaProducer",
+      "changed": "1.15 (FLIP-143): FlinkKafkaProducer deprecated in favor of KafkaSink"
+    },
+    {
+      "id": "stale-6",
+      "question": "I want to implement a custom source connector for Flink. Which API should I implement?",
+      "currentPatterns": [
+        "FLIP-27",
+        "\\bSource\\b.{0,40}(interface|API)",
+        "SplitEnumerator",
+        "SourceReader"
+      ],
+      "stalePatterns": [
+        "SourceFunction"
+      ],
+      "current": "new Source API (FLIP-27: Source/SplitEnumerator/SourceReader)",
+      "stale": "SourceFunction",
+      "changed": "1.11+ (FLIP-27): SourceFunction deprecated (1.18), removed in 2.0"
+    },
+    {
+      "id": "stale-7",
+      "question": "I want to implement a custom sink connector for Flink. Which API should I implement?",
+      "currentPatterns": [
+        "SinkV2",
+        "Sink2",
+        "unified [Ss]ink",
+        "FLIP-191",
+        "FLIP-143"
+      ],
+      "stalePatterns": [
+        "SinkFunction"
+      ],
+      "current": "unified Sink API (SinkV2, FLIP-143/191)",
+      "stale": "SinkFunction",
+      "changed": "1.15 (FLIP-143/191): SinkFunction deprecated, removed in 2.0"
+    },
+    {
+      "id": "stale-8",
+      "question": "What is the name of the main configuration file for a Flink deployment?",
+      "currentPatterns": [
+        "(?<!flink-)config\\.yaml"
+      ],
+      "stalePatterns": [
+        "flink-conf\\.yaml"
+      ],
+      "current": "config.yaml",
+      "stale": "flink-conf.yaml",
+      "changed": "1.19/2.0 (FLIP-366): flink-conf.yaml replaced by config.yaml"
+    },
+    {
+      "id": "stale-9",
+      "question": "Which Flink API should I use for batch processing jobs?",
+      "currentPatterns": [
+        "DataStream.{0,40}(batch|BATCH)",
+        "BATCH execution mode",
+        "Table API",
+        "batch (execution )?mode"
+      ],
+      "stalePatterns": [
+        "DataSet"
+      ],
+      "current": "DataStream API in BATCH execution mode (or Table/SQL API)",
+      "stale": "DataSet API",
+      "changed": "1.12 (FLIP-131): DataSet deprecated; removed in 2.0"
+    },
+    {
+      "id": "stale-10",
+      "question": "Which configuration option enables high availability for a Flink cluster?",
+      "currentPatterns": [
+        "high-availability\\.type"
+      ],
+      "stalePatterns": [
+        "high-availability(?!\\.type)(?!\\.[a-z])\\s*[:=]"
+      ],
+      "current": "high-availability.type",
+      "stale": "high-availability",
+      "changed": "1.17: high-availability renamed to high-availability.type"
+    },
+    {
+      "id": "stale-11",
+      "question": "Which configuration keys control the amount of network memory a TaskManager uses?",
+      "currentPatterns": [
+        "taskmanager\\.memory\\.network"
+      ],
+      "stalePatterns": [
+        "taskmanager\\.network\\.memory"
+      ],
+      "current": "taskmanager.memory.network.*",
+      "stale": "taskmanager.network.memory.*",
+      "changed": "1.10 (FLIP-49): network memory keys moved under taskmanager.memory.network"
+    },
+    {
+      "id": "stale-12",
+      "question": "What is the recommended deployment mode for running a single Flink job on Kubernetes?",
+      "currentPatterns": [
+        "[Aa]pplication [Mm]ode"
+      ],
+      "stalePatterns": [
+        "[Pp]er-[Jj]ob (mode|cluster)"
+      ],
+      "current": "Application Mode",
+      "stale": "per-job mode",
+      "changed": "1.15: per-job mode deprecated (removed 1.18/2.0); Application Mode is the replacement"
+    },
+    {
+      "id": "stale-13",
+      "question": "How do I set up event-time processing with watermarks in the DataStream API?",
+      "currentPatterns": [
+        "WatermarkStrategy"
+      ],
+      "stalePatterns": [
+        "setStreamTimeCharacteristic",
+        "TimeCharacteristic"
+      ],
+      "current": "WatermarkStrategy (assignTimestampsAndWatermarks(WatermarkStrategy...))",
+      "stale": "setStreamTimeCharacteristic(TimeCharacteristic.EventTime)",
+      "changed": "1.12 (FLIP-134): TimeCharacteristic deprecated; event time is the default, configured via WatermarkStrategy"
+    },
+    {
+      "id": "stale-14",
+      "question": "How do I make a DataStream queryable as a table from SQL in Flink?",
+      "currentPatterns": [
+        "createTemporaryView"
+      ],
+      "stalePatterns": [
+        "registerTable",
+        "registerDataStream"
+      ],
+      "current": "createTemporaryView",
+      "stale": "registerTable / registerDataStream",
+      "changed": "1.10 (FLIP-64): registerTable/registerDataStream deprecated in favor of createTemporaryView"
+    },
+    {
+      "id": "stale-15",
+      "question": "Is the Scala DataStream API a good choice for a new Flink project?",
+      "currentPatterns": [
+        "[Dd]eprecated",
+        "[Rr]emoved",
+        "use.{0,20}Java"
+      ],
+      "stalePatterns": [
+        "[Yy]es.{0,80}[Ss]cala"
+      ],
+      "current": "No \u2014 the Scala API is deprecated (1.17, FLIP-265) and removed in 2.0; use the Java API",
+      "stale": "recommending the Scala API",
+      "changed": "1.17 (FLIP-265): Scala API deprecated; removed in Flink 2.0"
+    },
+    {
+      "id": "stale-16",
+      "question": "Which class do I extend to write a rich sink that opens a database connection in Flink?",
+      "currentPatterns": [
+        "SinkV2",
+        "Sink2",
+        "FLIP-171",
+        "JdbcSink",
+        "unified [Ss]ink"
+      ],
+      "stalePatterns": [
+        "RichSinkFunction"
+      ],
+      "current": "the unified Sink API (SinkV2) / connector-specific sinks like JdbcSink",
+      "stale": "RichSinkFunction",
+      "changed": "1.15+: SinkFunction family deprecated, removed in 2.0"
+    },
+    {
+      "id": "stale-17",
+      "question": "Which sink should I use to write streaming data as files to S3 or HDFS?",
+      "currentPatterns": [
+        "FileSink"
+      ],
+      "stalePatterns": [
+        "StreamingFileSink",
+        "BucketingSink"
+      ],
+      "current": "FileSink (unified)",
+      "stale": "StreamingFileSink / BucketingSink",
+      "changed": "1.12/1.17: BucketingSink removed, StreamingFileSink deprecated -> FileSink"
+    },
+    {
+      "id": "stale-18",
+      "question": "How do I apply a tumbling window of 10 seconds on a keyed stream?",
+      "currentPatterns": [
+        "TumblingEventTimeWindows",
+        "TumblingProcessingTimeWindows",
+        "window\\("
+      ],
+      "stalePatterns": [
+        "timeWindow\\("
+      ],
+      "current": "window(TumblingEventTimeWindows.of(...))",
+      "stale": "timeWindow(...)",
+      "changed": "1.12: KeyedStream.timeWindow deprecated, removed 1.14"
+    },
+    {
+      "id": "stale-19",
+      "question": "Which class do I use to specify window sizes and time intervals in the DataStream API?",
+      "currentPatterns": [
+        "Duration"
+      ],
+      "stalePatterns": [
+        "windowing\\.time\\.Time",
+        "Time\\.seconds",
+        "Time\\.minutes"
+      ],
+      "current": "java.time.Duration",
+      "stale": "org.apache.flink...Time.seconds(...)",
+      "changed": "2.0: Time class removed in favor of java.time.Duration"
+    },
+    {
+      "id": "stale-20",
+      "question": "Which configuration prefix do I use to tune RPC timeouts like the ask timeout in Flink?",
+      "currentPatterns": [
+        "pekko",
+        "rpc\\.ask"
+      ],
+      "stalePatterns": [
+        "akka\\."
+      ],
+      "current": "pekko.* / rpc.*",
+      "stale": "akka.*",
+      "changed": "1.18: Akka replaced by Pekko; akka.* keys renamed"
+    },
+    {
+      "id": "stale-21",
+      "question": "Which configuration option sets the directory where checkpoints are stored?",
+      "currentPatterns": [
+        "execution\\.checkpointing\\.dir"
+      ],
+      "stalePatterns": [
+        "state\\.checkpoints\\.dir"
+      ],
+      "current": "execution.checkpointing.dir",
+      "stale": "state.checkpoints.dir",
+      "changed": "2.0 (FLINK-34255): state.checkpoints.dir renamed"
+    },
+    {
+      "id": "stale-22",
+      "question": "Which configuration option sets the default savepoint directory?",
+      "currentPatterns": [
+        "execution\\.checkpointing\\.savepoint-dir"
+      ],
+      "stalePatterns": [
+        "state\\.savepoints\\.dir"
+      ],
+      "current": "execution.checkpointing.savepoint-dir",
+      "stale": "state.savepoints.dir",
+      "changed": "2.0: state.savepoints.dir renamed"
+    },
+    {
+      "id": "stale-23",
+      "question": "Which configuration option enables incremental checkpoints for RocksDB?",
+      "currentPatterns": [
+        "execution\\.checkpointing\\.incremental"
+      ],
+      "stalePatterns": [
+        "state\\.backend\\.incremental"
+      ],
+      "current": "execution.checkpointing.incremental",
+      "stale": "state.backend.incremental",
+      "changed": "2.0: state.backend.incremental renamed"
+    },
+    {
+      "id": "stale-24",
+      "question": "How do I configure a fixed-delay restart strategy for my Flink job?",
+      "currentPatterns": [
+        "restart-strategy\\.type",
+        "restart-strategy(\\.fixed-delay)?"
+      ],
+      "stalePatterns": [
+        "RestartStrategies\\."
+      ],
+      "current": "config: restart-strategy.type: fixed-delay",
+      "stale": "env.setRestartStrategy(RestartStrategies.fixedDelayRestart(...))",
+      "changed": "1.19: programmatic RestartStrategies deprecated -> configuration"
+    },
+    {
+      "id": "stale-25",
+      "question": "Which TableEnvironment method do I call to run an INSERT INTO SQL statement?",
+      "currentPatterns": [
+        "executeSql"
+      ],
+      "stalePatterns": [
+        "sqlUpdate"
+      ],
+      "current": "executeSql",
+      "stale": "sqlUpdate",
+      "changed": "1.11 (FLIP-84): sqlUpdate deprecated -> executeSql"
+    },
+    {
+      "id": "stale-26",
+      "question": "How do I define a tumbling window aggregation in Flink SQL today?",
+      "currentPatterns": [
+        "TUMBLE\\(TABLE",
+        "window TVF",
+        "windowing TVF"
+      ],
+      "stalePatterns": [
+        "GROUP BY TUMBLE\\("
+      ],
+      "current": "windowing TVFs: TUMBLE(TABLE ...)",
+      "stale": "GROUP BY TUMBLE(...)",
+      "changed": "1.13 (FLIP-145): group window functions deprecated -> window TVFs"
+    },
+    {
+      "id": "stale-27",
+      "question": "Which Table API planner should I configure for a new Flink project?",
+      "currentPatterns": [
+        "[Bb]link is (the )?default",
+        "default planner",
+        "no.{0,30}planner (choice|option|setting)",
+        "only.{0,20}planner"
+      ],
+      "stalePatterns": [
+        "legacy planner",
+        "useOldPlanner",
+        "useBlinkPlanner"
+      ],
+      "current": "none - the (Blink) planner is the only one; no planner setting needed",
+      "stale": "legacy/old planner or explicit useBlinkPlanner()",
+      "changed": "1.14: legacy planner removed; planner selection obsolete"
+    },
+    {
+      "id": "stale-28",
+      "question": "Which DataStream method do I call to attach a Kafka sink to my stream?",
+      "currentPatterns": [
+        "sinkTo"
+      ],
+      "stalePatterns": [
+        "addSink"
+      ],
+      "current": "sinkTo(KafkaSink...)",
+      "stale": "addSink(new FlinkKafkaProducer...)",
+      "changed": "1.15: addSink(SinkFunction) superseded by sinkTo(Sink)"
+    },
+    {
+      "id": "stale-29",
+      "question": "How do I route elements of a DataStream into multiple separate streams?",
+      "currentPatterns": [
+        "side.?output",
+        "OutputTag"
+      ],
+      "stalePatterns": [
+        "\\.split\\(",
+        "SplitStream"
+      ],
+      "current": "side outputs (OutputTag + ctx.output)",
+      "stale": "DataStream.split()",
+      "changed": "1.12: split() removed -> side outputs"
+    },
+    {
+      "id": "stale-30",
+      "question": "Which interface should my source/operator implement to snapshot operator state for checkpoints?",
+      "currentPatterns": [
+        "CheckpointedFunction"
+      ],
+      "stalePatterns": [
+        "ListCheckpointed"
+      ],
+      "current": "CheckpointedFunction",
+      "stale": "ListCheckpointed",
+      "changed": "1.8-deprecated, removed 2.0: ListCheckpointed -> CheckpointedFunction"
+    },
+    {
+      "id": "stale-31",
+      "question": "How do I read a text file as a streaming source in Flink?",
+      "currentPatterns": [
+        "FileSource"
+      ],
+      "stalePatterns": [
+        "readTextFile"
+      ],
+      "current": "FileSource (connector-files)",
+      "stale": "StreamExecutionEnvironment.readTextFile",
+      "changed": "1.16: readTextFile deprecated -> FileSource"
+    },
+    {
+      "id": "stale-32",
+      "question": "Is queryable state a good way to expose Flink job state to external applications?",
+      "currentPatterns": [
+        "[Dd]eprecated",
+        "[Rr]emoved",
+        "external (store|system|database)",
+        "state processor"
+      ],
+      "stalePatterns": [
+        "[Yy]es.{0,60}queryable"
+      ],
+      "current": "No - queryable state was deprecated (1.18) and removed; export to an external store",
+      "stale": "recommending queryable state",
+      "changed": "1.18 (FLIP-357): queryable state deprecated, removed in 2.0"
+    },
+    {
+      "id": "stale-33",
+      "question": "Can I deploy Flink on Apache Mesos?",
+      "currentPatterns": [
+        "[Nn]o longer",
+        "[Rr]emoved",
+        "[Dd]eprecated",
+        "Kubernetes|YARN"
+      ],
+      "stalePatterns": [
+        "[Yy]es.{0,60}[Mm]esos"
+      ],
+      "current": "No - Mesos support was removed in 1.14; use Kubernetes or YARN",
+      "stale": "recommending Mesos deployment",
+      "changed": "1.14 (FLINK-22352): Mesos support removed"
+    },
+    {
+      "id": "stale-34",
+      "question": "Which deserialization interface do I implement for records in the Kafka source connector?",
+      "currentPatterns": [
+        "KafkaRecordDeserializationSchema"
+      ],
+      "stalePatterns": [
+        "KafkaDeserializationSchema(?!.{0,5}Record)"
+      ],
+      "current": "KafkaRecordDeserializationSchema",
+      "stale": "KafkaDeserializationSchema",
+      "changed": "1.14: KafkaSource uses KafkaRecordDeserializationSchema"
+    },
+    {
+      "id": "stale-35",
+      "question": "Which connector class do I use to consume an Amazon Kinesis stream in Flink?",
+      "currentPatterns": [
+        "KinesisStreamsSource"
+      ],
+      "stalePatterns": [
+        "FlinkKinesisConsumer"
+      ],
+      "current": "KinesisStreamsSource",
+      "stale": "FlinkKinesisConsumer",
+      "changed": "connector 5.0 (2024): FlinkKinesisConsumer deprecated -> KinesisStreamsSource"
+    },
+    {
+      "id": "stale-36",
+      "question": "Which configuration option sets the port of the Flink web UI / REST endpoint?",
+      "currentPatterns": [
+        "rest\\.port"
+      ],
+      "stalePatterns": [
+        "web\\.port"
+      ],
+      "current": "rest.port",
+      "stale": "web.port",
+      "changed": "1.5 (FLIP-6): web.port -> rest.port"
+    },
+    {
+      "id": "stale-37",
+      "question": "Which enum/setting controls whether externalized checkpoints are retained on job cancellation?",
+      "currentPatterns": [
+        "ExternalizedCheckpointRetention",
+        "externalized-checkpoint-retention"
+      ],
+      "stalePatterns": [
+        "ExternalizedCheckpointCleanup"
+      ],
+      "current": "ExternalizedCheckpointRetention / execution.checkpointing.externalized-checkpoint-retention",
+      "stale": "ExternalizedCheckpointCleanup",
+      "changed": "2.0 (FLINK-32570): enum renamed"
+    },
+    {
+      "id": "stale-38",
+      "question": "How do I get the index of the current parallel subtask inside a RichFunction?",
+      "currentPatterns": [
+        "getTaskInfo\\(\\)"
+      ],
+      "stalePatterns": [
+        "getRuntimeContext\\(\\)\\.getIndexOfThisSubtask|getIndexOfThisSubtask(?!.{0,40}getTaskInfo)"
+      ],
+      "current": "getRuntimeContext().getTaskInfo().getIndexOfThisSubtask()",
+      "stale": "getRuntimeContext().getIndexOfThisSubtask()",
+      "changed": "2.0 (FLINK-33905): accessors moved to TaskInfo"
+    },
+    {
+      "id": "stale-39",
+      "question": "How do I register a user-defined scalar function so it can be used from Flink SQL?",
+      "currentPatterns": [
+        "createTemporarySystemFunction",
+        "createTemporaryFunction"
+      ],
+      "stalePatterns": [
+        "registerFunction"
+      ],
+      "current": "createTemporarySystemFunction",
+      "stale": "TableEnvironment.registerFunction",
+      "changed": "1.12 (FLIP-65): registerFunction deprecated"
+    },
+    {
+      "id": "stale-40",
+      "question": "Which configuration option sets the total memory of a TaskManager?",
+      "currentPatterns": [
+        "taskmanager\\.memory\\.process\\.size",
+        "taskmanager\\.memory\\.flink\\.size"
+      ],
+      "stalePatterns": [
+        "taskmanager\\.heap\\.size"
+      ],
+      "current": "taskmanager.memory.process.size",
+      "stale": "taskmanager.heap.size",
+      "changed": "1.10 (FLIP-49): TM memory model reworked"
+    },
+    {
+      "id": "stale-41",
+      "question": "Which configuration option sets the total memory of the JobManager?",
+      "currentPatterns": [
+        "jobmanager\\.memory\\.process\\.size"
+      ],
+      "stalePatterns": [
+        "jobmanager\\.heap\\.size"
+      ],
+      "current": "jobmanager.memory.process.size",
+      "stale": "jobmanager.heap.size",
+      "changed": "1.11 (FLIP-116): JM memory model reworked"
+    },
+    {
+      "id": "stale-42",
+      "question": "Which sink do I use to write a DataStream to Elasticsearch 8?",
+      "currentPatterns": [
+        "Elasticsearch8AsyncSink",
+        "elasticsearch8"
+      ],
+      "stalePatterns": [
+        "ElasticsearchSink(?!.{0,20}8)"
+      ],
+      "current": "Elasticsearch8AsyncSink (connector-elasticsearch8)",
+      "stale": "ElasticsearchSink (ES6/7 style)",
+      "changed": "2023+: ES8 async sink replaces ElasticsearchSink"
+    },
+    {
+      "id": "stale-43",
+      "question": "From which package do I import CheckpointingMode when configuring exactly-once checkpointing?",
+      "currentPatterns": [
+        "core\\.execution\\.CheckpointingMode",
+        "org\\.apache\\.flink\\.core"
+      ],
+      "stalePatterns": [
+        "streaming\\.api\\.CheckpointingMode"
+      ],
+      "current": "org.apache.flink.core.execution.CheckpointingMode",
+      "stale": "org.apache.flink.streaming.api.CheckpointingMode",
+      "changed": "2.0 (FLINK-34516): class moved to flink-core"
+    },
+    {
+      "id": "stale-44",
+      "question": "How do I collect the results of a DataStream into my client program for testing?",
+      "currentPatterns": [
+        "executeAndCollect"
+      ],
+      "stalePatterns": [
+        "DataStreamUtils"
+      ],
+      "current": "DataStream.executeAndCollect()",
+      "stale": "DataStreamUtils.collect()",
+      "changed": "1.12: DataStreamUtils.collect deprecated"
+    },
+    {
+      "id": "stale-45",
+      "question": "Which configuration option sets the directories Flink uses for local temporary files?",
+      "currentPatterns": [
+        "io\\.tmp\\.dirs"
+      ],
+      "stalePatterns": [
+        "taskmanager\\.tmp\\.dirs"
+      ],
+      "current": "io.tmp.dirs",
+      "stale": "taskmanager.tmp.dirs",
+      "changed": "1.10ish: taskmanager.tmp.dirs -> io.tmp.dirs"
+    },
+    {
+      "id": "stale-46",
+      "question": "Which Table API method do I call to write a Table into a registered sink table?",
+      "currentPatterns": [
+        "executeInsert"
+      ],
+      "stalePatterns": [
+        "insertInto"
+      ],
+      "current": "executeInsert",
+      "stale": "insertInto",
+      "changed": "1.11 (FLIP-84): insertInto deprecated -> executeInsert"
+    },
+    {
+      "id": "stale-47",
+      "question": "Which TableEnvironment do I use for batch queries in the Table API?",
+      "currentPatterns": [
+        "EnvironmentSettings\\.inBatchMode",
+        "inBatchMode",
+        "unified TableEnvironment"
+      ],
+      "stalePatterns": [
+        "BatchTableEnvironment"
+      ],
+      "current": "TableEnvironment with EnvironmentSettings.inBatchMode()",
+      "stale": "BatchTableEnvironment",
+      "changed": "1.14: BatchTableEnvironment removed with legacy planner"
+    },
+    {
+      "id": "stale-48",
+      "question": "Do I need to call useBlinkPlanner() when creating EnvironmentSettings?",
+      "currentPatterns": [
+        "[Nn]o(t| longer)? (needed|necessary|required)",
+        "[Rr]emoved",
+        "default"
+      ],
+      "stalePatterns": [
+        "useBlinkPlanner"
+      ],
+      "current": "No - the Blink planner is the only planner; the method was removed",
+      "stale": "calling useBlinkPlanner()",
+      "changed": "1.14: planner selection methods removed"
+    },
+    {
+      "id": "stale-49",
+      "question": "Which class do I use to assign bounded-out-of-orderness watermarks?",
+      "currentPatterns": [
+        "forBoundedOutOfOrderness",
+        "WatermarkStrategy"
+      ],
+      "stalePatterns": [
+        "BoundedOutOfOrdernessTimestampExtractor"
+      ],
+      "current": "WatermarkStrategy.forBoundedOutOfOrderness(...)",
+      "stale": "BoundedOutOfOrdernessTimestampExtractor",
+      "changed": "1.11 (FLIP-126): watermark generators reworked"
+    },
+    {
+      "id": "stale-50",
+      "question": "How do I enable retained (externalized) checkpoints programmatically?",
+      "currentPatterns": [
+        "externalized-checkpoint-retention",
+        "setExternalizedCheckpointRetention",
+        "RETAIN_ON_CANCELLATION.{0,40}Retention|Retention"
+      ],
+      "stalePatterns": [
+        "enableExternalizedCheckpoints"
+      ],
+      "current": "config execution.checkpointing.externalized-checkpoint-retention / setExternalizedCheckpointRetention",
+      "stale": "enableExternalizedCheckpoints(ExternalizedCheckpointCleanup...)",
+      "changed": "1.20/2.0: API renamed"
+    }
+  ]
 }

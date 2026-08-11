@@ -1,6 +1,5 @@
 {
- "description": "",
- "note": "20 questions derived from internal (non-public) operator documentation are withheld from this release; the paper reports results with and without them.",
+ "note": "20 internal-documentation questions withheld; the paper reports results with and without them.",
  "questions": [
   {
    "id": "gen-1",
