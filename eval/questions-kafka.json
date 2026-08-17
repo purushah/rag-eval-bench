@@ -1,0 +1,680 @@
+{
+ "questions": [
+  {
+   "id": "v2-commit-1",
+   "source": "commit",
+   "question": "How does KAFKA-20495 enhance transactional support for in-memory window and session stores?",
+   "mustContain": [
+    "KAFKA-20495",
+    "InMemoryWindowTransactionBuffer",
+    "InMemorySessionTransactionBuffer"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:d2328ff720ba#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-2",
+   "source": "commit",
+   "question": "Which commit removed a redundant Gradle expression in Apache Kafka?",
+   "mustContain": [
+    "070892dafcdb",
+    "#19200",
+    "Dejan Stojadinovi\u0107"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:070892dafcdb#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-3",
+   "source": "commit",
+   "question": "What issue does commit 5bb44d63dd90 address in Kafka's RPCProducerIdManager?",
+   "mustContain": [
+    "KAFKA-20031",
+    "RPCProducerIdManager#sanityCheckResponse",
+    "overlapping producer id"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:5bb44d63dd90#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-4",
+   "source": "commit",
+   "question": "What changes were made to the ownership of ShareGroupMetrics in KAFKA-20612?",
+   "mustContain": [
+    "KAFKA-20612",
+    "ShareGroupMetrics",
+    "BrokerServer"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:69d4bfe9b93a#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-5",
+   "source": "commit",
+   "question": "How can I ensure that workers have an updated certificate store to verify GitHub's SSL certificate chain?",
+   "mustContain": [
+    "ca-certificates",
+    "update-ca-certificates --fresh",
+    "Manikumar Reddy <manikumar.reddy@gmail.com>"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:ee72f9074208#1",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-6",
+   "source": "commit",
+   "question": "What change was made in Kafka to handle delayed share fetch operations when partition leadership changes?",
+   "mustContain": [
+    "KAFKA-19567",
+    "delayedShareFetch tryComplete",
+    "commit 43a25043dd06"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:43a25043dd06#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-7",
+   "source": "commit",
+   "question": "What changes were made in Kafka to address the librdkafka compressed produce issue?",
+   "mustContain": [
+    "KAFKA-18659",
+    "ApiVersionsResponse",
+    "https://github.com/confluentinc/librdkafka/issues/4956"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:78aff4fede2b#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-8",
+   "source": "commit",
+   "question": "What change was made to the coordinator runtime metrics isolation tests in Kafka?",
+   "mustContain": [
+    "KAFKA-19445",
+    "Sean Quah",
+    "#21043"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:6f1a6ae8687e#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-9",
+   "source": "commit",
+   "question": "What issue does KAFKA-17507 address in the WriteTxnMarkers API?",
+   "mustContain": [
+    "KAFKA-17507",
+    "WriteTxnMarkers API",
+    "group coordinator's cache"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:450c10d00c7a#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-10",
+   "source": "commit",
+   "question": "What changes were made to the streams_eos_test for KIP-1071?",
+   "mustContain": [
+    "KAFKA-19202",
+    "KIP-1071",
+    "#19700"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:f26974b16db7#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-11",
+   "source": "commit",
+   "question": "What change was made to fix the flakiness in ClientIdQuotaTest?",
+   "mustContain": [
+    "KAFKA-18568",
+    "linger.ms",
+    "0ms"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:71495a201374#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-12",
+   "source": "commit",
+   "question": "What recent changes were made to the Kafka streams ResetIntegrationTest?",
+   "mustContain": [
+    "KAFKA-20553",
+    "ClusterInstance",
+    "Ken Huang"
+   ],
+   "difficulty": "hard",
+   "bucket": "recent",
+   "provenance": "commit:3ab2c3e62029#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-13",
+   "source": "commit",
+   "question": "What change was made to handle epoch exhaustion during transaction completion in Kafka?",
+   "mustContain": [
+    "KAFKA-20090",
+    "rotate producerId",
+    "commit 783e50137787"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:783e50137787#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-14",
+   "source": "commit",
+   "question": "How was the race condition involving state transitions from ERROR to PENDING_SHUTDOWN in Kafka addressed?",
+   "mustContain": [
+    "KAFKA-17379",
+    "PENDING_SHUTDOWN",
+    "Lucas Brutschy"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:102de21355e4#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-15",
+   "source": "commit",
+   "question": "What is the purpose of the integration tests added in commit c4823daa00a7?",
+   "mustContain": [
+    "KAFKA-20165",
+    "c4823daa00a7"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "commit:c4823daa00a7#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-16",
+   "source": "commit",
+   "question": "How was the flaky consumer test issue KAFKA-20333 addressed?",
+   "mustContain": [
+    "KAFKA-20333",
+    "increasing it to 1000",
+    "Lianet Magrans"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:51fa1601c173#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-17",
+   "source": "commit",
+   "question": "How can I test a Kafka docker image locally using a specific Kafka URL or archive?",
+   "mustContain": [
+    "KAFKA-18841",
+    "--kafka-url",
+    "--kafka-archive"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:b2c1a0fb9ffb#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-18",
+   "source": "commit",
+   "question": "How does Kafka handle cold share partitions in the __share_group_state topic?",
+   "mustContain": [
+    "KAFKA-18170",
+    "setupSnapshotColdPartitions",
+    "share.coordinator.cold.partition.snapshot.interval.ms"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:6fe1598e6b58#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-19",
+   "source": "commit",
+   "question": "How does the MockProducer handle serialization with headers in Kafka?",
+   "mustContain": [
+    "MockProducer",
+    "serialize method including headers",
+    "#11144"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:b2a01b275418#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-20",
+   "source": "commit",
+   "question": "What issue does commit 13b562727417 address in Kafka?",
+   "mustContain": [
+    "KAFKA-19337",
+    "13b562727417",
+    "Sushant Mahajan"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:13b562727417#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-21",
+   "source": "commit",
+   "question": "What is the purpose of the new task assignor interfaces introduced in Kafka?",
+   "mustContain": [
+    "KAFKA-18319",
+    "task assignors are pure functions",
+    "mock assignor"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:dd0fd5531632#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-22",
+   "source": "commit",
+   "question": "What issue does commit 8fc41f9ca246 address in Kafka Streams?",
+   "mustContain": [
+    "KAFKA-19171",
+    "UnsupportedOperationException",
+    "commit 8fc41f9ca246"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:8fc41f9ca246#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-23",
+   "source": "commit",
+   "question": "What changes were made in Kafka to handle persister retries for initializing topics?",
+   "mustContain": [
+    "KAFKA-19204",
+    "persister retry of initializing topics",
+    "commit e68781414e9b"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:e68781414e9b#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-24",
+   "source": "commit",
+   "question": "What changes were made to address offset management issues in Kafka's RocksDBStore?",
+   "mustContain": [
+    "KAFKA-17411",
+    "RocksDBStore",
+    "commit"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "commit:8b47aa813a7a#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-commit-25",
+   "source": "commit",
+   "question": "What Java version is now used for compiling streams-scala in Kafka?",
+   "mustContain": [
+    "KAFKA-20046",
+    "streams-scala"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "commit:c7800041c66d#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-1",
+   "source": "mailing-list",
+   "question": "What issue does KAFKA-13267 address in Kafka?",
+   "mustContain": [
+    "KAFKA-13267",
+    "InvalidPidMappingException"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:xdt29c9450oh962y0lbk5hjzq166pq5p#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-2",
+   "source": "mailing-list",
+   "question": "What is the purpose of PR 12400 in Apache Kafka?",
+   "mustContain": [
+    "KAFKA-13648",
+    "https://github.com/apache/kafka/pull/12400"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:3dq9zdwjk68f2momcjmln6zp4jvobzhc#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-3",
+   "source": "mailing-list",
+   "question": "What recent change was made to the ducktape dependency in Kafka's build process?",
+   "mustContain": [
+    "unpin ducktape dependency",
+    "#11883"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:fky1w4gxf6y3wjbov1b0tcjooo7syjmg#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-4",
+   "source": "mailing-list",
+   "question": "What issue is related to consumers not reducing rebalancetimeout with static membership?",
+   "mustContain": [
+    "KAFKA-14009",
+    "Consumers do not reduce rebalancetimeout"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:odq6fthy2227tdwtkv54t7hpf2ll22bl#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-5",
+   "source": "mailing-list",
+   "question": "What change does KIP-848 propose for the PartitionAssignor#onAssignment function?",
+   "mustContain": [
+    "KIP-848",
+    "PartitionAssignor#onAssignment"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:ws97346mtlmb62xlblxoowbztvn31tkl#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-6",
+   "source": "mailing-list",
+   "question": "Who expressed support for KIP-791 regarding adding record metadata to the state store context?",
+   "mustContain": [
+    "Guozhang Wang",
+    "KIP-791"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:7yv0wbmv7s6l8hvvkt2qo44j7819thsf#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-7",
+   "source": "mailing-list",
+   "question": "What is the key for the Jira issue related to ISR shrink to an error broker?",
+   "mustContain": [
+    "KAFKA-13252",
+    "ISR shrink to an error broker",
+    "chaos"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:wl9ktd66g7xs922nlgqmdv3bzyodxgsf#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-8",
+   "source": "mailing-list",
+   "question": "What is the purpose of KAFKA-13199 in the Apache Kafka project?",
+   "mustContain": [
+    "KAFKA-13199",
+    "Make Task extend Versioned"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:wk5fmqh78cld7tjz8fsn2lkwfpfshsfg#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-9",
+   "source": "mailing-list",
+   "question": "How does KIP-801 handle listener startup in relation to the Authorizer's readiness?",
+   "mustContain": [
+    "KIP-801"
+   ],
+   "difficulty": "easy",
+   "bucket": "historical",
+   "provenance": "ml:qdwn9911sn9dz81zqf2dylq5bl3do4t6#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-10",
+   "source": "mailing-list",
+   "question": "What is the purpose of KIP-814 in Kafka's static membership protocol?",
+   "mustContain": [
+    "KAFKA-13435",
+    "KIP-814",
+    "let the leader skip assignment"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:moln35fsjfz6v4jrygo4f6donk0xxj2m#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-11",
+   "source": "mailing-list",
+   "question": "What is the new configuration key proposed to replace 'buffered.records.per.partition' in KIP-770?",
+   "mustContain": [
+    "KIP-770",
+    "input.buffer.max.bytes"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:gkh9qdb0wjdo2ov280gg3oz9hord2znh#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-12",
+   "source": "mailing-list",
+   "question": "How does KIP-782 propose handling MemoryRecords allocation in Kafka producers?",
+   "mustContain": [
+    "KIP-782",
+    "MemoryRecords"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:7xplplw4m85qbsgworok1svj2zxzp91b#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-13",
+   "source": "mailing-list",
+   "question": "What was the outcome of the vote on KIP-811 regarding Kafka Streams?",
+   "mustContain": [
+    "KIP-811",
+    "Accepted",
+    "Nick Telford"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:p4yprklfwj7fw3t1qbkkfc900qggsby9#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-14",
+   "source": "mailing-list",
+   "question": "What issue does KAFKA-14211 address in Kafka Streams log messages?",
+   "mustContain": [
+    "KAFKA-14211",
+    "Streams log message has partition and offset transposed"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:p6qt822t68nz3fpbbp6ph60rhbcn5khn#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-15",
+   "source": "mailing-list",
+   "question": "What does the KIP-831 propose regarding log recovery metrics in Kafka?",
+   "mustContain": [
+    "KIP-831",
+    "RemainingLogsToRecovery"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:lt4kk2x2m1vjbymrd8r5ldlgtyzjs7j2#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-16",
+   "source": "mailing-list",
+   "question": "Where can I find the proposed implementation for KIP-785 on automatic storage formatting?",
+   "mustContain": [
+    "KIP-785",
+    "https://github.com/apache/kafka/p"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:59t1f31dhof1cj3zt2otgbhhv1grcdn7#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-17",
+   "source": "mailing-list",
+   "question": "What is the purpose of KAFKA-14083?",
+   "mustContain": [
+    "KAFKA-14083",
+    "Check if we don't need to refresh time in RecordAccumulator.append"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:n4jpb3toy74m7nh6mf52qkdsqk7jy865#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-18",
+   "source": "mailing-list",
+   "question": "What was the resolution for the issue KAFKA-13806 regarding CRC checks in Kafka snapshots?",
+   "mustContain": [
+    "KAFKA-13806",
+    "Check CRC when reading snapshots"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:6qzxv2bo5yj3248xsn5fbxv9rrz86yb8#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-19",
+   "source": "mailing-list",
+   "question": "What issue is related to incorrect metrics in KafkaController for replicasToDeleteCount?",
+   "mustContain": [
+    "KAFKA-13688",
+    "Incorrect metrics in KafkaController",
+    "replicasToDeleteCount"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:zol62y1s254gsshygh5ndhhwlv33nlkm#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-20",
+   "source": "mailing-list",
+   "question": "What issue is related to failed reconfiguration of tasks causing missing offset replications in MirrorCheckpointConnector?",
+   "mustContain": [
+    "KAFKA-13611",
+    "MirrorCheckpointConnector"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:yqhzrjokcw7vn3mx59vxxbfzmpnq6own#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-21",
+   "source": "mailing-list",
+   "question": "Who resolved the issue KAFKA-13746 related to the flaky TopicCommandIntegrationTest?",
+   "mustContain": [
+    "Guozhang Wang",
+    "KAFKA-13746"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:lmofv302pdl3pv3c9gqzs1cc24syoglg#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-22",
+   "source": "mailing-list",
+   "question": "What is the purpose of KIP-792 in Apache Kafka?",
+   "mustContain": [
+    "KIP-792",
+    "generation",
+    "consumer protocol"
+   ],
+   "difficulty": "hard",
+   "bucket": "historical",
+   "provenance": "ml:rnlsqpqz46bjzo51r661ry5q0q9dtj25#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-23",
+   "source": "mailing-list",
+   "question": "What is the email handle of Jos\u00e9 Armando Garc\u00eda Sancio who discussed KIP-778 KRaft Upgrades?",
+   "mustContain": [
+    "js...@confluent.io.INVALID"
+   ],
+   "difficulty": "easy",
+   "bucket": "historical",
+   "provenance": "ml:426mk8tvzmkrbsl3krb6pd0tvx2p98cy#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-24",
+   "source": "mailing-list",
+   "question": "What issue is related to MirrorMaker2 stopping tasks due to large records?",
+   "mustContain": [
+    "KAFKA-14064",
+    "MirrorMaker2 stops task when record is too big"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:btz2o7zwr9kt4146rsrf0h2nmk0kbj0b#0",
+   "origin": "v2-mined"
+  },
+  {
+   "id": "v2-mailing-list-25",
+   "source": "mailing-list",
+   "question": "What concerns were raised about the use cases of KIP-714?",
+   "mustContain": [
+    "KIP-714",
+    "client side metric reporter"
+   ],
+   "difficulty": "medium",
+   "bucket": "historical",
+   "provenance": "ml:5mvfw2t4pvn4sdck81d3ghlo0krqg80s#0",
+   "origin": "v2-mined"
+  }
+ ]
+}

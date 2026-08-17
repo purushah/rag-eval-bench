@@ -16,6 +16,7 @@ Jira, the dev@ mailing list, and documentation).
 | `eval/questions-main-v2-paraphrased.json` | 143 | The same questions reworded by a different provider's model (Claude), identifiers preserved verbatim — for miner/generator-coupling checks |
 | `eval/questions-multihop.json` | 20 | Cross-document multi-hop: an issue's fix release **and** its resolving PR/commit author; each fact verified to appear in only one of the two linked documents |
 | `eval/questions-staleness.json` | 50 | Staleness-stratified: questions whose correct answer **changed** over Flink's history (renamed config keys, deprecated APIs, removals); both the superseded and current forms verified present in a 5-year corpus |
+| `eval/questions-kafka.json` | 50 | Second-corpus replication set: mined the same way from **Apache Kafka** (GitHub / ASF Jira / dev@ list) by the project-parametrized miner — used to replicate the coverage and agentic-loop findings |
 
 Note: 20 additional main-set questions derive from internal (non-public) operator
 documentation and are withheld; the paper reports headline results with and without them.
@@ -56,8 +57,11 @@ Staleness questions:
 Answers are classified by a judge as recommending the **current** approach, the **stale** one
 (without flagging deprecation), **both**, or **abstaining**, with the regex patterns as a
 deterministic cross-check (mind the lookarounds — several pairs are substrings of each other,
-e.g. `state.backend` ⊂ `state.backend.type`). `staleness_eval_reference.py` is the reference
-scorer (it imports the benchmark harness; harness release to follow).
+e.g. `state.backend` ⊂ `state.backend.type`). Reference implementations: `staleness_eval_reference.py` (staleness scorer),
+`explicit_link_graph_reference.py` (deterministic native-link graph arm),
+`rewrite_vector_reference.py` (blind rewrite-then-one-shot control),
+`lightrag_arm_reference.py` (LightRAG second-implementation arm). Full harness release to
+follow.
 
 ## Reproducibility notes
 
