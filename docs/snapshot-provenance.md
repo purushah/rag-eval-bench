@@ -17,8 +17,8 @@ noted.
 | 6-month scaling cell | `ai_test_6mo` | 9,377 | 2026-08-08 | 1 |
 | 12-month scaling cell | `ai_test_12mo` | 12,556 | 2026-08-08 | 1 |
 | 5-year index (vector/agentic/rewrite/explicit-link) | `ai_test_5y` | 67,131 | 2026-08-12 | 3 |
-| 5-year GraphRAG + hybrid (complete community layer) | `ai_test_5y` | 67,131 | 2026-08-12 (graph built 08-13..19) | 3 |
-| Staleness set (N=50) | `ai_test_5y` / `ai_test` | 67,131 / 1,786 | 2026-08-16 | 3 |
+| 5-year GraphRAG + hybrid (complete community layer) | `ai_test_5y` | 67,282 | 2026-08-12 base, additive top-up (graph built 08-13..19) | 3 |
+| Staleness set (N=50) | `ai_test_5y` / `ai_test` | 67,282 / 1,786 | 2026-08-16 | 3 |
 | Kafka replication (1mo / 5y) | `kafka_test` / `kafka_test_5y` | 1,122 / 8,169 | 2026-08-17 | 3 |
 
 Notes
@@ -26,3 +26,6 @@ Notes
   clusters (`random_seed=42`), all summarized and embedded (gpt-4o-mini).
 - The ~6% internal-documentation chunks are excluded from the released question sets and
   cannot be released; public sources re-fetch deterministically from the snapshot dates.
+- `ai_test_5y` counts: 67,131 at the main 5-year runs (recorded in `v2-summary-meta.json`,
+  the count the paper cites); an additive top-up later grew the table to 67,282 for the
+  graph/hybrid/staleness runs — a superset preserving every provenance document.
