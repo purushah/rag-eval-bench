@@ -16,9 +16,9 @@ noted.
 | Dense/sparse/fused leg decomposition (matched snapshot) | `ai_test` | 2,066 | 2026-08-18 | 3 each (bit-identical) |
 | 6-month scaling cell | `ai_test_6mo` | 9,377 | 2026-08-08 | 1 |
 | 12-month scaling cell | `ai_test_12mo` | 12,556 | 2026-08-08 | 1 |
-| 5-year index (vector/agentic/rewrite/explicit-link) | `ai_test_5y` | 67,282 | 2026-08-12 | 3 |
-| 5-year GraphRAG + hybrid (complete community layer) | `ai_test_5y` | 67,282 | 2026-08-12 (graph built 08-13..19) | 3 |
-| Staleness set (N=50) | `ai_test_5y` / `ai_test` | 67,282 / 1,786 | 2026-08-16 | 3 |
+| 5-year index (vector/agentic/rewrite/explicit-link) | `ai_test_5y` | 67,131 | 2026-08-12 | 3 |
+| 5-year GraphRAG + hybrid (complete community layer) | `ai_test_5y` | 67,131 | 2026-08-12 (graph built 08-13..19) | 3 |
+| Staleness set (N=50) | `ai_test_5y` / `ai_test` | 67,131 / 1,786 | 2026-08-16 | 3 |
 | Kafka replication (1mo / 5y) | `kafka_test` / `kafka_test_5y` | 1,122 / 8,169 | 2026-08-17 | 3 |
 
 Notes
